@@ -3,12 +3,9 @@ import {
   Navigate,
   Route,
   Routes as RoutesComponent,
-} from 'react-router'
-import {
-  PrivateRoute,
-  PublicRoute,
-} from '../../components/layout/page-guards/page-guards'
-import { PRIVATE_ROUTES, PUBLIC_ROUTES, ROOT_PATH } from './routes.constants'
+} from "react-router";
+import { PublicRoute } from "../../components/layout/page-guards/page-guards";
+import { PUBLIC_ROUTES, ROOT_PATH } from "./routes.constants";
 
 export function Routes() {
   return (
@@ -23,17 +20,8 @@ export function Routes() {
             />
           ))}
         </Route>
-        <Route element={<PrivateRoute />}>
-          {PRIVATE_ROUTES.map((route) => (
-            <Route
-              key={route.key}
-              path={route.path}
-              element={<route.element />}
-            />
-          ))}
-        </Route>
         <Route path="*" element={<Navigate to={ROOT_PATH} replace />} />
       </RoutesComponent>
     </BrowserRouter>
-  )
+  );
 }
