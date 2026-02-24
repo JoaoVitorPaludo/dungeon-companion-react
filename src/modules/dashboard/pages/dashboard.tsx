@@ -4,7 +4,7 @@ import { useDashboard } from "./use-dashboard";
 import { containerVariants } from "../../../commons/animations/variants";
 
 export function Dashboard() {
-  const { categories, formatCategoryName, theme, isLoading } = useDashboard();
+  const { categories, t, theme, isLoading } = useDashboard();
 
   return (
     <S.DashboardContainer>
@@ -28,7 +28,7 @@ export function Dashboard() {
             viewport={{ once: false, amount: 0.3 }}
           >
             <Icon size={25} color={theme["green-500"]} />
-            <span>{formatCategoryName(key)}</span>
+            <span>{t(key)}</span>
           </S.DashboardCardContainer>
         );
       })}

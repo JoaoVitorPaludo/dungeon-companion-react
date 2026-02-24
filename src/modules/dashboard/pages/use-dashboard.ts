@@ -1,21 +1,18 @@
 import { useTheme } from "@emotion/react";
 import { getAllDnDCategories } from "../../../controllers/dashboard-controller";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 export const useDashboard = () => {
   const theme = useTheme();
+  const { t } = useTranslation("dashboard");
   const { data, isLoading } = useQuery({
     queryKey: ["dnd-categories"],
     queryFn: getAllDnDCategories,
   });
 
+  console.log(t("classes"));
   const categories = data?.data ? Object.entries(data.data) : [];
 
-  const formatCategoryName = (key: string) =>
-    key
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-
-  return { isLoading, theme, formatCategoryName, categories };
+  return { isLoading, theme, t, categories };
 };

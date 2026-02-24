@@ -3,17 +3,15 @@ import * as S from "./styles";
 import { TooltipComponent } from "../../ui/tooltip/tooltip";
 import { useAppStore } from "../../../store/use-app-store/use-app-store";
 export function AppBar() {
-  const { theme, setTheme } = useAppStore();
-
+  const { theme, setTheme, toggleLanguage, language } = useAppStore();
+  console.log("language:", language);
   return (
     <S.AppBarContainer>
       <S.AppBarTitle>Bem vindo, aventureiro!</S.AppBarTitle>
       <S.AppBarActions>
         <S.ActionsContainer>
           <TooltipComponent content="Mudar idioma" side="bottom">
-            <S.ThemeToggle
-            // onClick={toggleLanguage}
-            >
+            <S.ThemeToggle onClick={toggleLanguage}>
               <Languages size={20} />
             </S.ThemeToggle>
           </TooltipComponent>

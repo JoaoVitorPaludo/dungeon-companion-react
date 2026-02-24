@@ -1,6 +1,12 @@
 import { create } from "zustand";
-import { KEY_THEME, THEMES } from "./use-app-store.constants";
-import type { AppStore, Theme } from "./use-app-store.types";
+import {
+  KEY_LANGUAGE,
+  KEY_THEME,
+  SUPPORTED_LANGUAGES,
+  THEMES,
+} from "./use-app-store.constants";
+import type { AppStore, Language, Theme } from "./use-app-store.types";
+import { getI18n } from "react-i18next";
 
 const applyTheme = (theme: Theme) => {
   const root = document.documentElement;
@@ -20,28 +26,27 @@ export const getInitialTheme = (): Theme => {
   return "light";
 };
 
-// export const getInitialLanguage = (): Language => {
-//   const i18n = getI18n();
+export const getInitialLanguage = (): Language => {
+  const i18n = getI18n();
+  const savedLanguage = localStorage.getItem(KEY_LANGUAGE);
+  const isValidLanguage = SUPPORTED_LANGUAGES.includes(
+    savedLanguage as Language,
+  );
 
-//   const savedLanguage = localStorage.getItem(KEY_LANGUAGE);
-//   const isValidLanguage = SUPPORTED_LANGUAGES.includes(
-//     savedLanguage as Language,
-//   );
+  if (isValidLanguage && savedLanguage !== null) {
+    i18n?.changeLanguage(savedLanguage);
+    return savedLanguage as Language;
+  }
 
-//   if (isValidLanguage && savedLanguage !== null) {
-//     i18n.changeLanguage(savedLanguage);
-//     return savedLanguage as Language;
-//   }
-
-//   const defaultLanguage = i18n.language.startsWith("pt") ? "PT-BR" : "EN-US";
-//   i18n.changeLanguage(defaultLanguage);
-//   localStorage.setItem(KEY_LANGUAGE, defaultLanguage);
-//   return defaultLanguage;
-// };
+  const defaultLanguage = i18n?.language?.startsWith("pt") ? "PT-BR" : "EN-US";
+  i18n?.changeLanguage(defaultLanguage);
+  localStorage.setItem(KEY_LANGUAGE, defaultLanguage);
+  return defaultLanguage;
+};
 
 export const useAppStore = create<AppStore>((set, get) => ({
   theme: getInitialTheme(),
-  //language: getInitialLanguage(),
+  language: getInitialLanguage(),
 
   setTheme: (theme) => {
     applyTheme(theme);
@@ -54,19 +59,19 @@ export const useAppStore = create<AppStore>((set, get) => ({
     get().setTheme(newTheme);
   },
 
-  // setLanguage: (language) => {
-  //   localStorage.setItem(KEY_LANGUAGE, language);
-  //   getI18n().changeLanguage(language);
-  //   set({ language });
-  // },
+  setLanguage: (language) => {
+    localStorage.setItem(KEY_LANGUAGE, language);
+    getI18n().changeLanguage(language);
+    set({ language });
+  },
 
-  // toggleLanguage: () => {
-  //   const current = get().language;
-  //   const currentIndex = SUPPORTED_LANGUAGES.indexOf(current);
-  //   const nextIndex = (currentIndex + 1) % SUPPORTED_LANGUAGES.length;
-  //   const nextLanguage = SUPPORTED_LANGUAGES[nextIndex];
-  //   get().setLanguage(nextLanguage);
-  // },
+  toggleLanguage: () => {
+    const current = get().language;
+    const currentIndex = SUPPORTED_LANGUAGES.indexOf(current);
+    const nextIndex = (currentIndex + 1) % SUPPORTED_LANGUAGES.length;
+    const nextLanguage = SUPPORTED_LANGUAGES[nextIndex];
+    get().setLanguage(nextLanguage);
+  },
 
   handleError: (error: unknown, action = "unknown_action") => {
     // TODO: implement error handling

@@ -5,10 +5,10 @@ export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
 export interface AppStore {
   theme: Theme;
-  //language: Language
+  language: Language;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   handleError: (error: unknown, action?: string) => void;
-  //setLanguage: (language: Language) => void
-  //toggleLanguage: () => void
+  setLanguage: (language: Language) => void;
+  toggleLanguage: () => void;
 }
