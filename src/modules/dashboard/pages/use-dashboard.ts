@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { getAllDnDCategories } from "../../../controllers/dashboard-controller";
+import { getAllDnDCategories } from "../../../controllers/dashboard/dashboard-controller";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";

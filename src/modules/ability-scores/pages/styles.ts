@@ -1,17 +1,15 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const DashboardContainer = styled.div`
-  /* height: 100vh; */
+export const AbilityScoresContainer = styled(motion.div)`
   width: 100%;
-  /* flex: 1; */
   inset: 0;
   gap: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 `;
 
-export const DashboardCardContainer = styled(motion.div)`
+export const AbilityScoresCardContainer = styled(motion.div)`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -29,7 +27,7 @@ export const DashboardCardContainer = styled(motion.div)`
     border-color: ${(props) => props.theme["green-500"]};
   }
 `;
-export const DashboardNoDataContainer = styled.div`
+export const AbilityScoresNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
