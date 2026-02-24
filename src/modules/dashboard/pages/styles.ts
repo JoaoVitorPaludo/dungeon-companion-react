@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const DashboardContainer = styled.div`
+export const DashboardContainer = styled(motion.div)`
   /* height: 100vh; */
   width: 100%;
   /* flex: 1; */
