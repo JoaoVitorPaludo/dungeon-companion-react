@@ -2,6 +2,7 @@ import * as S from "./styles";
 import { CATEGORY_FALLBACK_ICON, CATEGORY_ICONS } from "./dashboard.constants";
 import { useDashboard } from "./use-dashboard";
 import { containerVariants } from "../../../commons/animations/variants";
+import { Loading3D } from "../../../commons/animations/d20-dice";
 
 export function Dashboard() {
   const { categories, t, theme, isLoading } = useDashboard();
@@ -9,7 +10,10 @@ export function Dashboard() {
   return (
     <S.DashboardContainer>
       {isLoading && (
-        <S.DashboardNoDataContainer>Loading...</S.DashboardNoDataContainer>
+        <S.DashboardNoDataContainer>
+          <Loading3D />
+          Loading...{" "}
+        </S.DashboardNoDataContainer>
       )}
       {categories.length === 0 && !isLoading && (
         <S.DashboardNoDataContainer>

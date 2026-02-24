@@ -4,7 +4,7 @@ import { TooltipComponent } from "../../ui/tooltip/tooltip";
 import { useAppStore } from "../../../store/use-app-store/use-app-store";
 import { useTranslation } from "react-i18next";
 export function AppBar() {
-  const { theme, setTheme, toggleLanguage, language } = useAppStore();
+  const { theme, setTheme, toggleLanguage } = useAppStore();
   const { t } = useTranslation("appBar");
   return (
     <S.AppBarContainer>
