@@ -1,0 +1,1 @@
+Componentes atrelados ao módulo

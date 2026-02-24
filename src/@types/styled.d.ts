@@ -1,8 +1,8 @@
-import '@emotion/react'
-import { defaultTheme } from '../styles/themes/default'
+import "@emotion/react";
+import { darkTheme } from "../styles/themes/default";
 
-type ThemeType = typeof defaultTheme
+type ThemeType = typeof darkTheme;
 
-declare module '@emotion/react' {
+declare module "@emotion/react" {
   export interface Theme extends ThemeType {}
 }
