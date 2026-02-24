@@ -2,8 +2,8 @@ import * as S from "./styles";
 import { CATEGORY_FALLBACK_ICON, CATEGORY_ICONS } from "./dashboard.constants";
 import { useDashboard } from "./use-dashboard";
 import {
-  dashboardListVariants,
-  dashboardCardVariants,
+  listVariants,
+  cardVariants,
 } from "../../../commons/animations/variants";
 import { Loading3D } from "../../../commons/animations/d20-dice";
 
@@ -14,7 +14,7 @@ export function Dashboard() {
   return (
     <S.DashboardContainer
       key={String(isLoading)}
-      variants={dashboardListVariants}
+      variants={listVariants}
       initial="hidden"
       animate="visible"
     >
@@ -34,7 +34,7 @@ export function Dashboard() {
         return (
           <S.DashboardCardContainer
             key={key}
-            variants={dashboardCardVariants}
+            variants={cardVariants}
             onClick={() => handleNavigateToCategory(key)}
           >
             <Icon size={25} color={theme["green-500"]} />

@@ -22,7 +22,7 @@ export const itemVariants: Variants = {
   },
 };
 
-export const dashboardListVariants: Variants = {
+export const listVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -32,7 +32,7 @@ export const dashboardListVariants: Variants = {
   },
 };
 
-export const dashboardCardVariants: Variants = {
+export const cardVariants: Variants = {
   hidden: { x: -40, opacity: 0 },
   visible: {
     x: 0,
