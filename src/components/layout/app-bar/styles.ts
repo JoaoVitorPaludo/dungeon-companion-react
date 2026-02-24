@@ -14,6 +14,12 @@ export const AppBarTitle = styled.h1`
   font-size: 1.2rem;
   font-weight: bold;
   color: ${(props) => props.theme["primary-text-color"]};
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  svg {
+    cursor: pointer;
+  }
 `;
 export const AppBarActions = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-import { Languages, Moon, Sun } from "lucide-react";
+import { ArrowLeft, Languages, Moon, Sun } from "lucide-react";
 import * as S from "./styles";
 import { TooltipComponent } from "../../ui/tooltip/tooltip";
 import { useAppStore } from "../../../store/use-app-store/use-app-store";
@@ -6,9 +6,19 @@ import { useTranslation } from "react-i18next";
 export function AppBar() {
   const { theme, setTheme, toggleLanguage } = useAppStore();
   const { t } = useTranslation("appBar");
+  const url = new URL(window.location.href);
+  console.log(url);
+
   return (
     <S.AppBarContainer>
-      <S.AppBarTitle>{t("welcome")}, João Vitor</S.AppBarTitle>
+      {url.pathname.includes("/dashboard") ? (
+        <S.AppBarTitle>{t("welcome")}, João Vitor</S.AppBarTitle>
+      ) : (
+        <S.AppBarTitle>
+          <ArrowLeft size={20} />
+          {t("back")}
+        </S.AppBarTitle>
+      )}
       <S.AppBarActions>
         <S.ActionsContainer>
           <TooltipComponent content={t("tooltipLanguage")} side="bottom">
