@@ -5,4 +5,7 @@ export const abilityScores = {
   dex: "Dexterity",
   int: "Intelligence",
   wis: "Wisdom",
+  description: "Description",
+  skills: "Skills",
+  noRelatedSkills: "No related skills.",
 } as const;

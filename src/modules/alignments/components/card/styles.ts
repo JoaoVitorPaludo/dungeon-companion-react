@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
-export const AbilityScoresCardContainer = styled.div`
+export const AlignmentsCardContainer = styled.div`
   display: flex;
   padding: 2rem;
   justify-content: center;
@@ -9,7 +9,7 @@ export const AbilityScoresCardContainer = styled.div`
   flex: 1;
 `;
 
-export const AbilityScoresCardContent = styled(motion.div)`
+export const AlignmentsCardContent = styled(motion.div)`
   background-color: ${(props) => props.theme["muted-background"]};
   padding: 2rem;
   border-radius: 0.5rem;
@@ -37,7 +37,7 @@ export const AbilityScoresCardContent = styled(motion.div)`
   p {
   }
 `;
-export const AbilityScoresCardNoDataContainer = styled.div`
+export const AlignmentsCardNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
