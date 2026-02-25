@@ -5,3 +5,4 @@ export * from "./app-bar/app-bar";
 export * from "./ability-scores/ability-scores";
 export * from "./alignments/alignments";
 export * from "./backgrounds/backgrounds";
+export * from "./classes/classes";
