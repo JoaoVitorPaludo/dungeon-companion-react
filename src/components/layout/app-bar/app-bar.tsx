@@ -3,9 +3,11 @@ import * as S from "./styles";
 import { TooltipComponent } from "../../ui/tooltip/tooltip";
 import { useAppStore } from "../../../store/use-app-store/use-app-store";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 export function AppBar() {
   const { theme, setTheme, toggleLanguage } = useAppStore();
   const { t } = useTranslation("appBar");
+  const navigate = useNavigate();
   const url = new URL(window.location.href);
   console.log(url);
 
@@ -15,7 +17,7 @@ export function AppBar() {
         <S.AppBarTitle>{t("welcome")}, João Vitor</S.AppBarTitle>
       ) : (
         <S.AppBarTitle>
-          <ArrowLeft size={20} />
+          <ArrowLeft size={20} onClick={() => navigate(-1)} />
           {t("back")}
         </S.AppBarTitle>
       )}
