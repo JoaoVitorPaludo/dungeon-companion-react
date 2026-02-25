@@ -16,6 +16,7 @@ export const useDashboard = () => {
   const categories = data?.data ? Object.entries(data.data) : [];
 
   const handleNavigateToCategory = (categoryKey: string) => {
+    console.log(categoryKey);
     navigate(`/${categoryKey}`);
   };
 
