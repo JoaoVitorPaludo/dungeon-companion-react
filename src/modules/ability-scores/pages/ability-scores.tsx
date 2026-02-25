@@ -9,8 +9,9 @@ import {
   ABILITY_SCORES_FALLBACK_ICON,
   ABILITY_SCORES_ICONS,
 } from "./ability-scores.constants";
+import { ABILITY_SCORES_DETAIL_PATH } from "../../../app/routes/routes.constants";
 export function AbilityScores() {
-  const { data, isLoading, theme, t } = useAbilityScore();
+  const { data, isLoading, theme, t, navigate } = useAbilityScore();
   return (
     <S.AbilityScoresContainer
       key={String(isLoading)}
@@ -32,6 +33,9 @@ export function AbilityScores() {
           <S.AbilityScoresCardContainer
             key={item.index}
             variants={cardVariants}
+            onClick={() =>
+              navigate(ABILITY_SCORES_DETAIL_PATH.replace(":id", item.index))
+            }
           >
             <Icon size={25} color={theme["green-500"]} />
             <span>{t(item.index)}</span>
