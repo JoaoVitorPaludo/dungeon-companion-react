@@ -1,14 +1,20 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const AbilityScoresContainer = styled(motion.div)`
+export const AbilityScoresContainer = styled.div`
   width: 100%;
-  inset: 0;
   gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const AbilityScoresCardsContainer = styled(motion.div)`
+  gap: 1rem;
+  inset: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 `;
-
 export const AbilityScoresCardContainer = styled(motion.div)`
   display: flex;
   gap: 1rem;
