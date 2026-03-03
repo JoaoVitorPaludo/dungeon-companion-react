@@ -12,8 +12,8 @@ import { Conditions } from "../../modules/conditions";
 import { ConditionsCard } from "../../modules/conditions/components/card/card";
 import { DamageTypes } from "../../modules/damage-types";
 import { DamageTypesCard } from "../../modules/damage-types/components/card/card";
-import { Equipments } from "../../modules/equipment";
-import { EquipmentCard } from "../../modules/equipment/components/card/card";
+import { Equipments } from "../../modules/equipments";
+import { EquipmentCard } from "../../modules/equipments/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
