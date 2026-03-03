@@ -7,3 +7,4 @@ export * from "./alignments/alignments";
 export * from "./backgrounds/backgrounds";
 export * from "./classes/classes";
 export * from "./conditions/conditions";
+export * from "./damage-types/damage-types";

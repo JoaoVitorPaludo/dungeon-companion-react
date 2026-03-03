@@ -10,6 +10,8 @@ import { Classes } from "../../modules/classes";
 import { ClassesCard } from "../../modules/classes/components/card/card";
 import { Conditions } from "../../modules/conditions";
 import { ConditionsCard } from "../../modules/conditions/components/card/card";
+import { DamageTypes } from "../../modules/damage-types";
+import { DamageTypesCard } from "../../modules/damage-types/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -29,6 +31,9 @@ export const CLASSES_DETAIL_PATH = "/classes/:id";
 
 export const CONDITIONS_PATH = "/conditions";
 export const CONDITIONS_DETAIL_PATH = "/conditions/:id";
+
+export const DAMAGE_TYPES_PATH = "/damage-types";
+export const DAMAGE_TYPES_DETAIL_PATH = "/damage-types/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -95,6 +100,16 @@ export const PUBLIC_ROUTES = [
     path: CONDITIONS_DETAIL_PATH,
     key: "conditions-detail",
     element: ConditionsCard,
+  },
+  {
+    path: DAMAGE_TYPES_PATH,
+    key: "damage-types",
+    element: DamageTypes,
+  },
+  {
+    path: DAMAGE_TYPES_DETAIL_PATH,
+    key: "damage-types-detail",
+    element: DamageTypesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
