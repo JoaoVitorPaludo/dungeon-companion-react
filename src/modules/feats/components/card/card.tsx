@@ -14,10 +14,10 @@ export function FeatsCard() {
       ) : (
         <S.FeatsCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>description</span>
+          <span>{t("description")}</span>
           {data?.desc.map((item, index) => <p key={index}>{item}</p>)}
 
-          <span>prerequisites</span>
+          <span>{t("prerequisites")}</span>
           <ul>
             {data?.prerequisites.map((item, index) => (
               <li key={index}>

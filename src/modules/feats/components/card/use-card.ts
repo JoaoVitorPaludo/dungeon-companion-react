@@ -5,7 +5,7 @@ import { getFeatsByIndex } from "../../../../controllers/feats/feats-controller"
 
 export const useCard = () => {
   const url = new URL(window.location.href);
-  const { t } = useTranslation("classes");
+  const { t } = useTranslation("feats");
   const { data, isLoading } = useQuery<CardData>({
     queryKey: ["dnd-classes-detail"],
     queryFn: () => getFeatsByIndex(url.pathname.split("/").slice(-1)[0]),
