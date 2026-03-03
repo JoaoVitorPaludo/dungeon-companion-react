@@ -16,6 +16,8 @@ import { Equipments } from "../../modules/equipments";
 import { EquipmentCard } from "../../modules/equipments/components/card/card";
 import { EquipmentsCategories } from "../../modules/equipments-categories";
 import { EquipmentCategoriesCard } from "../../modules/equipments-categories/components/card/card";
+import { Feats } from "../../modules/feats";
+import { FeatsCard } from "../../modules/feats/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -44,6 +46,9 @@ export const EQUIPMENT_DETAIL_PATH = "/equipment/:id";
 
 export const EQUIPMENT_CATEGORIES_PATH = "/equipment-categories";
 export const EQUIPMENT_CATEGORIES_DETAIL_PATH = "/equipment-categories/:id";
+
+export const FEATS_PATH = "/feats";
+export const FEATS_DETAIL_PATH = "/feats/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -140,6 +145,16 @@ export const PUBLIC_ROUTES = [
     path: EQUIPMENT_CATEGORIES_DETAIL_PATH,
     key: "equipment-categories-detail",
     element: EquipmentCategoriesCard,
+  },
+  {
+    path: FEATS_PATH,
+    key: "feats",
+    element: Feats,
+  },
+  {
+    path: FEATS_DETAIL_PATH,
+    key: "feats-detail",
+    element: FeatsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
