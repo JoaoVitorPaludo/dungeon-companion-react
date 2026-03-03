@@ -6,3 +6,4 @@ export * from "./ability-scores/ability-scores";
 export * from "./alignments/alignments";
 export * from "./backgrounds/backgrounds";
 export * from "./classes/classes";
+export * from "./conditions/conditions";

@@ -1,0 +1,18 @@
+export const conditions = {
+  blinded: "Cegueira",
+  charmed: "Encantado",
+  deafened: "Surdo",
+  exhaustion: "Exaustão",
+  frightened: "Assustado",
+  grappled: "Agarrado",
+  incapacitated: "Incapacitado",
+  invisible: "Invisível",
+  paralyzed: "Paralisado",
+  petrified: "Petrificado",
+  poisoned: "Envenenado",
+  prone: "Ajoelhado",
+  restrained: "Restrito",
+  stunned: "Atordoado",
+  unconscious: "Inconsciente",
+  description: "Descrição",
+} as const;

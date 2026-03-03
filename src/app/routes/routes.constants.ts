@@ -8,6 +8,8 @@ import { Backgrounds } from "../../modules/backgrounds/pages/backgrounds";
 import { BackgroundCard } from "../../modules/backgrounds/components/card/card";
 import { Classes } from "../../modules/classes";
 import { ClassesCard } from "../../modules/classes/components/card/card";
+import { Conditions } from "../../modules/conditions";
+import { ConditionsCard } from "../../modules/conditions/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -24,6 +26,9 @@ export const BACKGROUNDS_DETAIL_PATH = "/backgrounds/:id";
 
 export const CLASSES_PATH = "/classes";
 export const CLASSES_DETAIL_PATH = "/classes/:id";
+
+export const CONDITIONS_PATH = "/conditions";
+export const CONDITIONS_DETAIL_PATH = "/conditions/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -80,6 +85,16 @@ export const PUBLIC_ROUTES = [
     path: CLASSES_DETAIL_PATH,
     key: "classes-detail",
     element: ClassesCard,
+  },
+  {
+    path: CONDITIONS_PATH,
+    key: "conditions",
+    element: Conditions,
+  },
+  {
+    path: CONDITIONS_DETAIL_PATH,
+    key: "conditions-detail",
+    element: ConditionsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
