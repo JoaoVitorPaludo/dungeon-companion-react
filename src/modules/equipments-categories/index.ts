@@ -1,1 +1,1 @@
-export { Equipments } from "./pages/equipment";
+export { EquipmentsCategories } from "./pages/equipments-categories";

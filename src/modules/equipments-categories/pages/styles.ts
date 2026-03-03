@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const EquipmentContainer = styled.div`
+export const EquipmentsCategoriesContainer = styled.div`
   width: 100%;
   gap: 1rem;
   display: flex;
@@ -9,13 +9,13 @@ export const EquipmentContainer = styled.div`
   gap: 1rem;
 `;
 
-export const EquipmentCardsContainer = styled(motion.div)`
+export const EquipmentsCategoriesCardsContainer = styled(motion.div)`
   gap: 1rem;
   inset: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 `;
-export const EquipmentCardContainer = styled(motion.div)`
+export const EquipmentsCategoriesCardContainer = styled(motion.div)`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -33,7 +33,7 @@ export const EquipmentCardContainer = styled(motion.div)`
     border-color: ${(props) => props.theme["green-500"]};
   }
 `;
-export const EquipmentNoDataContainer = styled.div`
+export const EquipmentsCategoriesNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

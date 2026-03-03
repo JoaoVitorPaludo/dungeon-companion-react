@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { DamageTypeCardData } from "./card.interfaces";
-import { getDamageTypesByIndex } from "../../../../controllers/damageTypes/damage-types-controller";
+import { getDamageTypesByIndex } from "../../../../controllers/damage-types/damage-types-controller";
 
 export const useCard = () => {
   const url = new URL(window.location.href);

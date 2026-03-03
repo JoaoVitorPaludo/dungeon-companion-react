@@ -9,3 +9,4 @@ export * from "./classes/classes";
 export * from "./conditions/conditions";
 export * from "./damage-types/damage-types";
 export * from "./equipments/equipments";
+export * from "./equipments-categories/equipments-categories";

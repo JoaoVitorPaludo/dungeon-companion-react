@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
-export const EquipmentCardContainer = styled.div`
+export const EquipmentsCategoriesCardContainer = styled.div`
   display: flex;
   padding: 2rem;
   justify-content: center;
@@ -9,7 +9,7 @@ export const EquipmentCardContainer = styled.div`
   flex: 1;
 `;
 
-export const EquipmentCardContent = styled(motion.div)`
+export const EquipmentsCategoriesCardContent = styled(motion.div)`
   background-color: ${(props) => props.theme["muted-background"]};
   padding: 2rem;
   border-radius: 0.5rem;
@@ -37,7 +37,7 @@ export const EquipmentCardContent = styled(motion.div)`
   p {
   }
 `;
-export const EquipmentCardNoDataContainer = styled.div`
+export const EquipmentsCategoriesCardNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@ export const EquipmentCardNoDataContainer = styled.div`
   font-size: 1.2rem;
 `;
 
-export const EquipmentSideInfoContainer = styled.div`
+export const EquipmentsCategoriesSideInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 2rem;

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@emotion/react";
 import { useNavigate } from "react-router";
-import { getAllDnDDamageTypes } from "../../../controllers/damageTypes/damage-types-controller";
+import { getAllDnDDamageTypes } from "../../../controllers/damage-types/damage-types-controller";
 
 export interface DamageType {
   index: string;

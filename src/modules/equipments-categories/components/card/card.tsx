@@ -1,73 +1,27 @@
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import * as S from "./styles";
 import { useCard } from "./use-card";
-export function EquipmentCard() {
+export function EquipmentCategoriesCard() {
   const { data, t, url, isLoading } = useCard();
 
   return (
-    <S.EquipmentCardContainer>
+    <S.EquipmentsCategoriesCardContainer>
       {isLoading ? (
-        <S.EquipmentCardNoDataContainer>
+        <S.EquipmentsCategoriesCardNoDataContainer>
           <Loading3D />
           Loading...
-        </S.EquipmentCardNoDataContainer>
+        </S.EquipmentsCategoriesCardNoDataContainer>
       ) : (
-        <S.EquipmentCardContent>
+        <S.EquipmentsCategoriesCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>{t("description")}</span>
-          {data?.desc.length === 0 && <p>{t("no-description")}</p>}
-          {data?.desc.map((desc) => (
-            <p key={desc}>
-              {desc}
-              <br />
-            </p>
-          ))}
-
-          <S.EquipmentSideInfoContainer>
-            <div>
-              <span>{t("cost")}</span>
-              <p>
-                {data?.cost.quantity} ({data?.cost.unit})
-              </p>
-            </div>
-            <div>
-              <span>{t("weight")}</span>
-              <p>{data?.weight}</p>
-            </div>
-          </S.EquipmentSideInfoContainer>
-          <S.EquipmentSideInfoContainer>
-            <div>
-              <span>{t("equipment-category")}</span>
-              <p>{data?.equipment_category?.name}</p>
-            </div>
-            <div>
-              <span>{t("gear-category")}</span>
-              <p>{data?.gear_category?.name}</p>
-            </div>
-          </S.EquipmentSideInfoContainer>
-          <S.EquipmentSideInfoContainer>
-            <div>
-              <span>{t("special")}</span>
-              {data?.special.map((desc) => (
-                <p key={desc}>
-                  {desc}
-                  <br />
-                </p>
-              ))}{" "}
-            </div>
-
-            <div>
-              <span>{t("properties")}</span>
-              {data?.properties.map((properties) => (
-                <p key={properties.index}>
-                  {properties.name}
-                  <br />
-                </p>
-              ))}{" "}
-            </div>
-          </S.EquipmentSideInfoContainer>
-        </S.EquipmentCardContent>
+          <span>{t("equipment")}</span>
+          <ul>
+            {data?.equipment.map((item) => (
+              <li key={item.index}>{item.name}</li>
+            ))}
+          </ul>
+        </S.EquipmentsCategoriesCardContent>
       )}
-    </S.EquipmentCardContainer>
+    </S.EquipmentsCategoriesCardContainer>
   );
 }
