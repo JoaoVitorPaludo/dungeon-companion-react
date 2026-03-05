@@ -22,6 +22,8 @@ import { FeatureCard } from "../../modules/features/components/card/card";
 import { Features } from "../../modules/features";
 import { LanguagesCard } from "../../modules/languages/components/card/card";
 import { Languages } from "../../modules/languages";
+import { MagicItemsCard } from "../../modules/magic-items/components/card/card";
+import { MagicItems } from "../../modules/magic-items";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -59,6 +61,9 @@ export const FEATURES_DETAIL_PATH = "/features/:id";
 
 export const LANGUAGES_PATH = "/languages";
 export const LANGUAGES_DETAIL_PATH = "/languages/:id";
+
+export const MAGIC_ITEMS_PATH = "/magic-items";
+export const MAGIC_ITEMS_DETAIL_PATH = "/magic-items/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -185,6 +190,16 @@ export const PUBLIC_ROUTES = [
     path: LANGUAGES_DETAIL_PATH,
     key: "languages-detail",
     element: LanguagesCard,
+  },
+  {
+    path: MAGIC_ITEMS_PATH,
+    key: "magic-items",
+    element: MagicItems,
+  },
+  {
+    path: MAGIC_ITEMS_DETAIL_PATH,
+    key: "magic-items-detail",
+    element: MagicItemsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
