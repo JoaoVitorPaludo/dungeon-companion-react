@@ -11,3 +11,4 @@ export * from "./damage-types/damage-types";
 export * from "./equipments/equipments";
 export * from "./equipments-categories/equipments-categories";
 export * from "./feats/feats";
+export * from "./features/features";
