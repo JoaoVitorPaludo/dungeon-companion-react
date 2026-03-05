@@ -13,3 +13,4 @@ export * from "./equipments-categories/equipments-categories";
 export * from "./feats/feats";
 export * from "./features/features";
 export * from "./feats/feats";
+export * from "./languages/languages";

@@ -20,6 +20,8 @@ import { Feats } from "../../modules/feats";
 import { FeatsCard } from "../../modules/feats/components/card/card";
 import { FeatureCard } from "../../modules/features/components/card/card";
 import { Features } from "../../modules/features";
+import { LanguagesCard } from "../../modules/languages/components/card/card";
+import { Languages } from "../../modules/languages";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -54,6 +56,9 @@ export const FEATS_DETAIL_PATH = "/feats/:id";
 
 export const FEATURES_PATH = "/features";
 export const FEATURES_DETAIL_PATH = "/features/:id";
+
+export const LANGUAGES_PATH = "/languages";
+export const LANGUAGES_DETAIL_PATH = "/languages/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -170,6 +175,16 @@ export const PUBLIC_ROUTES = [
     path: FEATURES_DETAIL_PATH,
     key: "features-detail",
     element: FeatureCard,
+  },
+  {
+    path: LANGUAGES_PATH,
+    key: "languages",
+    element: Languages,
+  },
+  {
+    path: LANGUAGES_DETAIL_PATH,
+    key: "languages-detail",
+    element: LanguagesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
