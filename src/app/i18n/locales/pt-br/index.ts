@@ -15,3 +15,4 @@ export * from "./features/features";
 export * from "./feats/feats";
 export * from "./languages/languages";
 export * from "./magic-items/magic-items";
+export * from "./magic-schools/magic-schools";

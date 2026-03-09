@@ -24,6 +24,8 @@ import { LanguagesCard } from "../../modules/languages/components/card/card";
 import { Languages } from "../../modules/languages";
 import { MagicItemsCard } from "../../modules/magic-items/components/card/card";
 import { MagicItems } from "../../modules/magic-items";
+import { MagicSchools } from "../../modules/magic-schools";
+import { MagicSchoolsCard } from "../../modules/magic-schools/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -64,6 +66,9 @@ export const LANGUAGES_DETAIL_PATH = "/languages/:id";
 
 export const MAGIC_ITEMS_PATH = "/magic-items";
 export const MAGIC_ITEMS_DETAIL_PATH = "/magic-items/:id";
+
+export const MAGIC_SCHOOLS_PATH = "/magic-schools";
+export const MAGIC_SCHOOLS_DETAIL_PATH = "/magic-schools/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -200,6 +205,16 @@ export const PUBLIC_ROUTES = [
     path: MAGIC_ITEMS_DETAIL_PATH,
     key: "magic-items-detail",
     element: MagicItemsCard,
+  },
+  {
+    path: MAGIC_SCHOOLS_PATH,
+    key: "magic-schools",
+    element: MagicSchools,
+  },
+  {
+    path: MAGIC_SCHOOLS_DETAIL_PATH,
+    key: "magic-schools-detail",
+    element: MagicSchoolsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
