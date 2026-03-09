@@ -1,6 +1,8 @@
 import { Loading3D } from "../../../../commons/animations/d20-dice";
+import { BadgeComponent } from "../../../../components/ui/badge/badge";
 import * as S from "./styles";
 import { useCard } from "./use-card";
+
 export function FeatureCard() {
   const { data, t, url, isLoading } = useCard();
 
@@ -13,20 +15,34 @@ export function FeatureCard() {
         </S.FeatsCardNoDataContainer>
       ) : (
         <S.FeatsCardContent>
-          <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>{t("description")}</span>
-          {data?.desc.map((item, index) => <p key={index}>{item}</p>)}
+          <h2>{data?.name || t(url.pathname.split("/").slice(-1)[0])}</h2>
 
-          <span>{t("class")}</span>
-          <p>{t(data?.class?.name || "")}</p>
-          <span>{t("prerequisites")}</span>
-          <ul>
-            {data?.prerequisites.map((item, index) => (
-              <li key={index}>
-                {t(item.ability_score.index)}: {item.minimum_score}
-              </li>
-            ))}
-          </ul>
+          <S.ItemHeader>
+            <S.BadgeContainer>
+              {data?.class && (
+                <BadgeComponent variant="class">
+                  {t(data.class.name || "")}
+                </BadgeComponent>
+              )}
+              {data?.prerequisites &&
+                data.prerequisites.map((item, index) => (
+                  <BadgeComponent key={index} variant="prerequisite">
+                    {t(item.ability_score.index)}: {item.minimum_score}
+                  </BadgeComponent>
+                ))}
+            </S.BadgeContainer>
+          </S.ItemHeader>
+
+          <S.DescriptionContainer>
+            {data?.desc && data.desc.length > 0 && (
+              <>
+                <span>{t("description")}</span>
+                {data.desc.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </>
+            )}
+          </S.DescriptionContainer>
         </S.FeatsCardContent>
       )}
     </S.FeatsCardContainer>

@@ -2,7 +2,13 @@ import * as S from "./styles";
 interface BadgeProps {
   children?: React.ReactNode;
   color?: string;
-  variant?: "rarity" | "category";
+  variant?:
+    | "rarity"
+    | "category"
+    | "type"
+    | "speaker"
+    | "class"
+    | "prerequisite";
 }
 export function BadgeComponent({
   children,

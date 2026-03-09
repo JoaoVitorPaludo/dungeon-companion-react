@@ -11,32 +11,61 @@ export const FeatsCardContainer = styled.div`
 
 export const FeatsCardContent = styled(motion.div)`
   background-color: ${(props) => props.theme["muted-background"]};
-  padding: 2rem;
-  border-radius: 0.5rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
   border: 1px solid ${(props) => props.theme.border};
-  min-width: 300px;
+  min-width: 500px;
   min-height: 80%;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1.2rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
-  ul {
-    list-style: inside;
-    gap: 0.5rem;
-    display: flex;
-    flex-direction: column;
-  }
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
   h2 {
-    font-size: 1.9rem;
-  }
-  span {
-    font-size: 1.2rem;
-    color: ${(props) => props.theme["green-500"]};
-  }
-  p {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    color: ${(props) => props.theme.foreground};
   }
 `;
+
+export const ItemHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+`;
+
+export const BadgeContainer = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+`;
+
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+    color: ${(props) => props.theme["primary-text-color"]};
+  }
+`;
+
 export const FeatsCardNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;

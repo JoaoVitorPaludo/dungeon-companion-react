@@ -1,15 +1,21 @@
 import styled from "@emotion/styled";
 
 type BadgeProps = {
-  variant: "rarity" | "category";
+  variant:
+    | "rarity"
+    | "category"
+    | "type"
+    | "speaker"
+    | "class"
+    | "prerequisite";
 };
 export const Badge = styled.span<BadgeProps>`
   background-color: ${(props) =>
-    props.variant === "rarity"
+    ["rarity", "type", "class"].includes(props.variant)
       ? props.theme["green-500"] + "20"
       : props.theme.secondary};
   color: ${(props) =>
-    props.variant === "rarity"
+    ["rarity", "type", "class"].includes(props.variant)
       ? props.theme["green-500"]
       : props.theme.foreground};
   padding: 0.4rem 0.8rem;
@@ -18,7 +24,7 @@ export const Badge = styled.span<BadgeProps>`
   font-weight: 600;
   border: 1px solid
     ${(props) =>
-      props.variant === "rarity"
+      ["rarity", "type", "class"].includes(props.variant)
         ? props.theme["green-500"]
         : props.theme.border};
 `;
