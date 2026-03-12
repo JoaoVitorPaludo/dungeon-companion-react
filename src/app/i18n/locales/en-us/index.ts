@@ -17,3 +17,4 @@ export * from "./magic-items/magic-items";
 export * from "./magic-schools/magic-schools";
 export * from "./monsters/monsters";
 export * from "./proficiencies/proficiencies";
+export * from "./races/races";

@@ -30,6 +30,8 @@ import { Monsters } from "../../modules/monsters";
 import { MonstersCard } from "../../modules/monsters/components/card/card";
 import { Proficiencies } from "../../modules/proficiencies";
 import { ProficienciesCard } from "../../modules/proficiencies/components/card/card";
+import { Races } from "../../modules/races";
+import { RacesCard } from "../../modules/races/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -79,6 +81,9 @@ export const MONSTERS_DETAIL_PATH = "/monsters/:id";
 
 export const PROFICIENCIES_PATH = "/proficiencies";
 export const PROFICIENCIES_DETAIL_PATH = "/proficiencies/:id";
+
+export const RACES_PATH = "/races";
+export const RACES_DETAIL_PATH = "/races/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -245,6 +250,16 @@ export const PUBLIC_ROUTES = [
     path: PROFICIENCIES_DETAIL_PATH,
     key: "proficiencies-detail",
     element: ProficienciesCard,
+  },
+  {
+    path: RACES_PATH,
+    key: "races",
+    element: Races,
+  },
+  {
+    path: RACES_DETAIL_PATH,
+    key: "races-detail",
+    element: RacesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
