@@ -28,6 +28,8 @@ import { MagicSchools } from "../../modules/magic-schools";
 import { MagicSchoolsCard } from "../../modules/magic-schools/components/card/card";
 import { Monsters } from "../../modules/monsters";
 import { MonstersCard } from "../../modules/monsters/components/card/card";
+import { Proficiencies } from "../../modules/proficiencies";
+import { ProficienciesCard } from "../../modules/proficiencies/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -74,6 +76,9 @@ export const MAGIC_SCHOOLS_DETAIL_PATH = "/magic-schools/:id";
 
 export const MONSTERS_PATH = "/monsters";
 export const MONSTERS_DETAIL_PATH = "/monsters/:id";
+
+export const PROFICIENCIES_PATH = "/proficiencies";
+export const PROFICIENCIES_DETAIL_PATH = "/proficiencies/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -230,6 +235,16 @@ export const PUBLIC_ROUTES = [
     path: MONSTERS_DETAIL_PATH,
     key: "monsters-detail",
     element: MonstersCard,
+  },
+  {
+    path: PROFICIENCIES_PATH,
+    key: "proficiencies",
+    element: Proficiencies,
+  },
+  {
+    path: PROFICIENCIES_DETAIL_PATH,
+    key: "proficiencies-detail",
+    element: ProficienciesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];

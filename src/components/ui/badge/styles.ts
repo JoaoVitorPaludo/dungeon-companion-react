@@ -7,6 +7,7 @@ type BadgeProps = {
 export const Badge = styled.span<BadgeProps>`
   display: flex;
   align-items: center;
+  width: fit-content;
   background-color: ${(props) =>
     props.variant === "primary"
       ? props.theme["green-500"] + "20"
