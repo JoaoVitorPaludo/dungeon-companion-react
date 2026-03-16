@@ -38,6 +38,8 @@ import { Spells } from "../../modules/spells";
 import { SpellsCard } from "../../modules/spells/components/card/card";
 import { SubclassesCard } from "../../modules/subclasses/components/card/card";
 import { Subclasses } from "../../modules/subclasses";
+import { Subraces } from "../../modules/subraces";
+import { SubracesCard } from "../../modules/subraces/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -99,6 +101,9 @@ export const SPELLS_DETAIL_PATH = "/spells/:id";
 
 export const SUBCLASSES_PATH = "/subclasses";
 export const SUBCLASSES_DETAIL_PATH = "/subclasses/:id";
+
+export const SUBRACES_PATH = "/subraces";
+export const SUBRACES_DETAIL_PATH = "/subraces/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -305,6 +310,16 @@ export const PUBLIC_ROUTES = [
     path: SUBCLASSES_DETAIL_PATH,
     key: "subclasses-detail",
     element: SubclassesCard,
+  },
+  {
+    path: SUBRACES_PATH,
+    key: "subraces",
+    element: Subraces,
+  },
+  {
+    path: SUBRACES_DETAIL_PATH,
+    key: "subraces-detail",
+    element: SubracesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
