@@ -34,6 +34,8 @@ import { Races } from "../../modules/races";
 import { RacesCard } from "../../modules/races/components/card/card";
 import { Skills } from "../../modules/skills";
 import { SkillsCard } from "../../modules/skills/components/card/card";
+import { Spells } from "../../modules/spells";
+import { SpellsCard } from "../../modules/spells/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -89,6 +91,9 @@ export const RACES_DETAIL_PATH = "/races/:id";
 
 export const SKILLS_PATH = "/skills";
 export const SKILLS_DETAIL_PATH = "/skills/:id";
+
+export const SPELLS_PATH = "/spells";
+export const SPELLS_DETAIL_PATH = "/spells/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -275,6 +280,16 @@ export const PUBLIC_ROUTES = [
     path: SKILLS_DETAIL_PATH,
     key: "skills-detail",
     element: SkillsCard,
+  },
+  {
+    path: SPELLS_PATH,
+    key: "spells",
+    element: Spells,
+  },
+  {
+    path: SPELLS_DETAIL_PATH,
+    key: "spells-detail",
+    element: SpellsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
