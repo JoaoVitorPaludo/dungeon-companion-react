@@ -40,6 +40,8 @@ import { SubclassesCard } from "../../modules/subclasses/components/card/card";
 import { Subclasses } from "../../modules/subclasses";
 import { Subraces } from "../../modules/subraces";
 import { SubracesCard } from "../../modules/subraces/components/card/card";
+import { Traits } from "../../modules/traits";
+import { TraitsCard } from "../../modules/traits/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -104,6 +106,9 @@ export const SUBCLASSES_DETAIL_PATH = "/subclasses/:id";
 
 export const SUBRACES_PATH = "/subraces";
 export const SUBRACES_DETAIL_PATH = "/subraces/:id";
+
+export const TRAITS_PATH = "/traits";
+export const TRAITS_DETAIL_PATH = "/traits/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -320,6 +325,16 @@ export const PUBLIC_ROUTES = [
     path: SUBRACES_DETAIL_PATH,
     key: "subraces-detail",
     element: SubracesCard,
+  },
+  {
+    path: TRAITS_PATH,
+    key: "traits",
+    element: Traits,
+  },
+  {
+    path: TRAITS_DETAIL_PATH,
+    key: "traits-detail",
+    element: TraitsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
