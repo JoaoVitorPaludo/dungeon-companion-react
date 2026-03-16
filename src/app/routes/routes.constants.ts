@@ -32,6 +32,8 @@ import { Proficiencies } from "../../modules/proficiencies";
 import { ProficienciesCard } from "../../modules/proficiencies/components/card/card";
 import { Races } from "../../modules/races";
 import { RacesCard } from "../../modules/races/components/card/card";
+import { Skills } from "../../modules/skills";
+import { SkillsCard } from "../../modules/skills/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -84,6 +86,9 @@ export const PROFICIENCIES_DETAIL_PATH = "/proficiencies/:id";
 
 export const RACES_PATH = "/races";
 export const RACES_DETAIL_PATH = "/races/:id";
+
+export const SKILLS_PATH = "/skills";
+export const SKILLS_DETAIL_PATH = "/skills/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -260,6 +265,16 @@ export const PUBLIC_ROUTES = [
     path: RACES_DETAIL_PATH,
     key: "races-detail",
     element: RacesCard,
+  },
+  {
+    path: SKILLS_PATH,
+    key: "skills",
+    element: Skills,
+  },
+  {
+    path: SKILLS_DETAIL_PATH,
+    key: "skills-detail",
+    element: SkillsCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
