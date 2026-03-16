@@ -1,45 +1,5 @@
-import {
-  Activity,
-  Brain,
-  Eye,
-  Flame,
-  Footprints,
-  Hand,
-  HeartPulse,
-  Leaf,
-  MessageCircle,
-  MessagesSquare,
-  Microscope,
-  Mountain,
-  ScrollText,
-  ShieldAlert,
-  Sparkles,
-  Theater,
-  Users,
-  BookOpen,
-  type LucideIcon,
-  PawPrint,
-} from "lucide-react";
+import { BookOpen, type LucideIcon } from "lucide-react";
 
-export const SPELLS_ICONS: Record<string, LucideIcon> = {
-  acrobatics: Activity,
-  "animal-handling": PawPrint,
-  arcana: Sparkles,
-  athletics: Mountain,
-  deception: MessagesSquare,
-  history: ScrollText,
-  insight: Brain,
-  intimidation: ShieldAlert,
-  investigation: Microscope,
-  medicine: HeartPulse,
-  nature: Leaf,
-  perception: Eye,
-  performance: Theater,
-  persuasion: MessageCircle,
-  religion: Flame,
-  "sleight-of-hand": Hand,
-  stealth: Footprints,
-  survival: Users,
-};
+export const SPELLS_ICONS: Record<string, LucideIcon> = {};
 
 export const SPELLS_FALLBACK_ICON: LucideIcon = BookOpen;
