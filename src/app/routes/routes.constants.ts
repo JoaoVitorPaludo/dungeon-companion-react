@@ -36,6 +36,8 @@ import { Skills } from "../../modules/skills";
 import { SkillsCard } from "../../modules/skills/components/card/card";
 import { Spells } from "../../modules/spells";
 import { SpellsCard } from "../../modules/spells/components/card/card";
+import { SubclassesCard } from "../../modules/subclasses/components/card/card";
+import { Subclasses } from "../../modules/subclasses";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -94,6 +96,9 @@ export const SKILLS_DETAIL_PATH = "/skills/:id";
 
 export const SPELLS_PATH = "/spells";
 export const SPELLS_DETAIL_PATH = "/spells/:id";
+
+export const SUBCLASSES_PATH = "/subclasses";
+export const SUBCLASSES_DETAIL_PATH = "/subclasses/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -290,6 +295,16 @@ export const PUBLIC_ROUTES = [
     path: SPELLS_DETAIL_PATH,
     key: "spells-detail",
     element: SpellsCard,
+  },
+  {
+    path: SUBCLASSES_PATH,
+    key: "subclasses",
+    element: Subclasses,
+  },
+  {
+    path: SUBCLASSES_DETAIL_PATH,
+    key: "subclasses-detail",
+    element: SubclassesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];

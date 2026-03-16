@@ -21,3 +21,4 @@ export * from "./proficiencies/proficiencies";
 export * from "./races/races";
 export * from "./skills/skills";
 export * from "./spells/spells";
+export * from "./subclasses/subclasses";

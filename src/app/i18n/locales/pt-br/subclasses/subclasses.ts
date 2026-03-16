@@ -1,0 +1,15 @@
+export const subclasses = {
+  berserker: "Berserker",
+  champion: "Campeão",
+  devotion: "Devoção",
+  draconic: "Dracônico",
+  evocation: "Evocação",
+  fiend: "Demônio",
+  hunter: "Caçador",
+  land: "Terra",
+  life: "Vida",
+  lore: "Tradição",
+  "open-hand": "Mão Aberta",
+  thief: "Ladrão",
+  description: "Descrição",
+};
