@@ -22,8 +22,8 @@ export const getInitialTheme = (): Theme => {
     return savedTheme as Theme;
   }
 
-  applyTheme("light");
-  return "light";
+  applyTheme("dark");
+  return "dark";
 };
 
 export const getInitialLanguage = (): Language => {
