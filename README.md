@@ -15,7 +15,7 @@ Aplicação web desenvolvida em **React + Vite** que consome a API oficial de **
 
 ## 🔗 Acesse o projeto
 
-👉 https://dungeon-companion.vercel.app
+👉 https://dungeon-companion.joaovitorpaludo.com.br/
 
 ---
 
