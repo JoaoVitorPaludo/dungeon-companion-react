@@ -27,12 +27,12 @@ export function MagicItemsCard() {
             <S.DetailsContainer>
               <S.BadgeContainer>
                 {data?.rarity && (
-                  <BadgeComponent variant="rarity">
+                  <BadgeComponent variant="primary">
                     {data.rarity.name}
                   </BadgeComponent>
                 )}
                 {data?.equipment_category && (
-                  <BadgeComponent variant="category">
+                  <BadgeComponent variant="secondary">
                     {data.equipment_category.name}
                   </BadgeComponent>
                 )}

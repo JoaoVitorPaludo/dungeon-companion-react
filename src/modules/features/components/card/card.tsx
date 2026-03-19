@@ -20,13 +20,13 @@ export function FeatureCard() {
           <S.ItemHeader>
             <S.BadgeContainer>
               {data?.class && (
-                <BadgeComponent variant="class">
+                <BadgeComponent variant="primary">
                   {t(data.class.name || "")}
                 </BadgeComponent>
               )}
               {data?.prerequisites &&
                 data.prerequisites.map((item, index) => (
-                  <BadgeComponent key={index} variant="prerequisite">
+                  <BadgeComponent key={index} variant="secondary">
                     {t(item.ability_score.index)}: {item.minimum_score}
                   </BadgeComponent>
                 ))}

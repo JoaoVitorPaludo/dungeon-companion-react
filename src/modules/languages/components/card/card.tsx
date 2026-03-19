@@ -20,10 +20,10 @@ export function LanguagesCard() {
           <S.ItemHeader>
             <S.BadgeContainer>
               {data?.type && (
-                <BadgeComponent variant="type">{data.type}</BadgeComponent>
+                <BadgeComponent variant="primary">{data.type}</BadgeComponent>
               )}
               {data?.typical_speakers?.map((speaker) => (
-                <BadgeComponent key={speaker} variant="speaker">
+                <BadgeComponent key={speaker} variant="secondary">
                   {speaker}
                 </BadgeComponent>
               ))}
