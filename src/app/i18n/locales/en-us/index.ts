@@ -23,3 +23,4 @@ export * from "./spells/spells";
 export * from "./subclasses/subclasses";
 export * from "./subraces/subraces";
 export * from "./traits/traits";
+export * from "./weapon-properties/weapon-properties";

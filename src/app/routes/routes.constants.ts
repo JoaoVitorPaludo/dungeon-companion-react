@@ -42,6 +42,8 @@ import { Subraces } from "../../modules/subraces";
 import { SubracesCard } from "../../modules/subraces/components/card/card";
 import { Traits } from "../../modules/traits";
 import { TraitsCard } from "../../modules/traits/components/card/card";
+import { WeaponPropertiesCard } from "../../modules/weapon-properties/components/card/card";
+import { WeaponProperties } from "../../modules/weapon-properties";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -109,6 +111,9 @@ export const SUBRACES_DETAIL_PATH = "/subraces/:id";
 
 export const TRAITS_PATH = "/traits";
 export const TRAITS_DETAIL_PATH = "/traits/:id";
+
+export const WEAPON_PROPERTIES_PATH = "/weapon-properties";
+export const WEAPON_PROPERTIES_DETAIL_PATH = "/weapon-properties/:id";
 
 export const PUBLIC_ROUTES = [
   {
@@ -335,6 +340,16 @@ export const PUBLIC_ROUTES = [
     path: TRAITS_DETAIL_PATH,
     key: "traits-detail",
     element: TraitsCard,
+  },
+  {
+    path: WEAPON_PROPERTIES_PATH,
+    key: "weapon-properties",
+    element: WeaponProperties,
+  },
+  {
+    path: WEAPON_PROPERTIES_DETAIL_PATH,
+    key: "weapon-properties-detail",
+    element: WeaponPropertiesCard,
   },
 ];
 export const PRIVATE_ROUTES = [];
