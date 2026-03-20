@@ -74,7 +74,7 @@ export const AccordionContent = styled(RadixAccordion.Content)`
   font-size: 0.95rem;
   line-height: 1.6;
 
-  animation: slideDown 0.3s ease-out;
+  /* animation: slideDown 0.3s ease-out;
 
   @keyframes slideDown {
     from {
@@ -85,5 +85,5 @@ export const AccordionContent = styled(RadixAccordion.Content)`
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  } */
 `;
