@@ -1,5 +1,6 @@
 export const lightTheme = {
   "green-500": "#22c55e",
+  "green-300": "#50de83",
   background: "#ffffff",
   foreground: "#111827",
   "muted-background": "#f5f5f5",
@@ -13,6 +14,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   "green-500": "#22c55e",
+  "green-300": "#50de83",
   background: "#131a29",
   foreground: "#fff",
   "muted-background": "#111827cc",

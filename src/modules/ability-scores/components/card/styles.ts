@@ -21,12 +21,6 @@ export const AbilityScoresCardContent = styled(motion.div)`
   gap: 0.8rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
-  ul {
-    list-style: inside;
-    gap: 0.5rem;
-    display: flex;
-    flex-direction: column;
-  }
   h2 {
     font-size: 1.9rem;
   }
@@ -43,4 +37,33 @@ export const AbilityScoresCardNoDataContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+`;
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+`;
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+  }
 `;
