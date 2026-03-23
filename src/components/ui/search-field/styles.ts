@@ -4,7 +4,6 @@ import { TextField } from "@radix-ui/themes";
 export const SearchFieldContainer = styled(TextField.Root)`
   width: 100%;
   background-color: ${(props) => props.theme["muted-background"]};
-  border: 1px solid ${(props) => props.theme.border};
   height: 40px;
   outline: none;
 
@@ -19,7 +18,7 @@ export const SearchFieldContainer = styled(TextField.Root)`
   }
 
   &:focus-within {
-    border-color: ${(props) => props.theme["green-500"]};
+    border: 1px solid ${(props) => props.theme["green-500"]};
   }
 `;
 export const SearchFieldIconContainer = styled(TextField.Slot)`
