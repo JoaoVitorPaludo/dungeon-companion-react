@@ -14,10 +14,14 @@ export function AlignmentCard() {
       ) : (
         <S.AlignmentsCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>{t("description")}</span>
-          <ul>
-            <li>{data?.desc}</li>
-          </ul>
+          <S.DescriptionContainer>
+            <S.Section>
+              <h2>{t("description")}</h2>
+              <ul>
+                <li>{data?.desc}</li>
+              </ul>
+            </S.Section>
+          </S.DescriptionContainer>
         </S.AlignmentsCardContent>
       )}
     </S.AlignmentsCardContainer>
