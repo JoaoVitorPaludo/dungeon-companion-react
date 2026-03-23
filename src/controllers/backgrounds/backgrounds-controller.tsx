@@ -9,3 +9,8 @@ export const getBackgroundsByIndex = async (index: string) => {
   const response = await api.get(`/backgrounds/${index}`);
   return response.data;
 };
+
+export const getProficiencyByIndex = async (index: string) => {
+  const response = await api.get(`/skills/${index}`);
+  return response.data;
+};

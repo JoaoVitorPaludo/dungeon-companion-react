@@ -6,6 +6,8 @@ import { CardData } from "./card.interfaces";
 export const useCard = () => {
   const url = new URL(window.location.href);
   const { t } = useTranslation("backgrounds");
+  const { t: tSkills } = useTranslation("skills");
+
   const { data, isLoading } = useQuery<CardData>({
     queryKey: ["dnd-backgrounds-detail"],
     queryFn: () => getBackgroundsByIndex(url.pathname.split("/").slice(-1)[0]),
@@ -13,5 +15,5 @@ export const useCard = () => {
 
   console.log(data);
 
-  return { data, isLoading, t, url };
+  return { data, isLoading, t, url, tSkills };
 };
