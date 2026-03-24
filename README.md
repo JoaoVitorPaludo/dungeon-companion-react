@@ -3,9 +3,9 @@
 ![React](https://img.shields.io/badge/React-19-blue?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-⚡-purple?logo=vite)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![Versão](https://img.shields.io/badge/versão-v1.2-black)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Vercel](https://img.shields.io/badge/deploy-vercel-black?logo=vercel)
 
 Aplicação web desenvolvida em **React + Vite** que consome a API oficial de **Dungeons & Dragons (5e)** para listar, organizar e traduzir conteúdos do jogo.
 
