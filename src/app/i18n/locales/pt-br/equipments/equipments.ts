@@ -267,4 +267,5 @@ export const equipments = {
   "gear-category": "Categoria de Equipamento",
   special: "Especial",
   properties: "Propriedades",
+  contents: "Conteúdo",
 } as const;

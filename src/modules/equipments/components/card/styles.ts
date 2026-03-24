@@ -14,7 +14,7 @@ export const EquipmentCardContent = styled(motion.div)`
   padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid ${(props) => props.theme.border};
-  min-width: 700px;
+  min-width: 50%;
   min-height: 80%;
   display: flex;
   flex-direction: column;
@@ -34,8 +34,6 @@ export const EquipmentCardContent = styled(motion.div)`
     font-size: 1.2rem;
     color: ${(props) => props.theme["green-500"]};
   }
-  p {
-  }
 `;
 export const EquipmentCardNoDataContainer = styled.div`
   display: flex;
@@ -45,9 +43,45 @@ export const EquipmentCardNoDataContainer = styled.div`
   font-size: 1.2rem;
 `;
 
-export const EquipmentSideInfoContainer = styled.div`
+export const Section = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  li {
+    line-height: 1.5;
+  }
+`;
+
+export const SectionGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    color: ${(props) => props.theme["green-500"]};
+  }
 `;
