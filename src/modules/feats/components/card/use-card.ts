@@ -2,14 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { CardData } from "./card.interfaces";
 import { getFeatsByIndex } from "../../../../controllers/feats/feats-controller";
+import { useNavigate } from "react-router";
 
 export const useCard = () => {
   const url = new URL(window.location.href);
+  const navigate = useNavigate();
   const { t } = useTranslation("feats");
   const { data, isLoading } = useQuery<CardData>({
     queryKey: ["dnd-classes-detail"],
     queryFn: () => getFeatsByIndex(url.pathname.split("/").slice(-1)[0]),
   });
 
-  return { data, isLoading, t, url };
+  return { data, isLoading, t, url, navigate };
 };
