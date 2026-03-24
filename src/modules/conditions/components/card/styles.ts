@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
-export const ClassesCardContainer = styled.div`
+export const ConditionsCardContainer = styled.div`
   display: flex;
   padding: 2rem;
   justify-content: center;
@@ -9,7 +9,7 @@ export const ClassesCardContainer = styled.div`
   flex: 1;
 `;
 
-export const ClassesCardContent = styled(motion.div)`
+export const ConditionsCardContent = styled(motion.div)`
   background-color: ${(props) => props.theme["muted-background"]};
   padding: 2rem;
   border-radius: 0.5rem;
@@ -21,26 +21,38 @@ export const ClassesCardContent = styled(motion.div)`
   gap: 0.8rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
-  ul {
-    list-style: inside;
-    gap: 0.5rem;
-    display: flex;
-    flex-direction: column;
-  }
+
   h2 {
     font-size: 1.9rem;
   }
-  span {
-    font-size: 1.2rem;
-    color: ${(props) => props.theme["green-500"]};
-  }
-  p {
-  }
 `;
-export const ClassesCardNoDataContainer = styled.div`
+export const ConditionsCardNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+`;
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem !important;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+  }
 `;
