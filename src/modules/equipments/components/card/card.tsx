@@ -15,7 +15,7 @@ export function EquipmentCard() {
         <S.EquipmentCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
           <span>{t("description")}</span>
-          {data?.desc.length === 0 && <p>{t("no-description")}</p>}
+          {data?.desc?.length === 0 && <p>{t("no-description")}</p>}
           {data?.desc.map((desc) => (
             <p key={desc}>
               {desc}

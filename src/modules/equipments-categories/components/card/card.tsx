@@ -16,7 +16,7 @@ export function EquipmentCategoriesCard() {
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
           <span>{t("equipment")}</span>
           <ul>
-            {data?.equipment.map((item) => (
+            {data?.equipment?.map((item) => (
               <li key={item.index}>{item.name}</li>
             ))}
           </ul>

@@ -9,11 +9,11 @@ export function ProficienciesAccordionContent({
     useProficiencyAccordionContent(proficiencyIndex);
 
   if (isLoading) {
-    return <p>{t("global.loading")}</p>;
+    return <p>{t("loading")}</p>;
   }
 
   if (!data) {
-    return <p>{t("global.noContent")}</p>;
+    return <p>{t("noContent")}</p>;
   }
 
   return (

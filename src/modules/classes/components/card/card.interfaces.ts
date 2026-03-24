@@ -59,16 +59,51 @@ export interface StartingEquipmentOption {
   from: StartingEquipmentOptionFrom;
 }
 
-export interface StartingEquipmentOptionFrom {
-  option_set_type: string;
-  options: FluffyOption[];
+export type StartingEquipmentOptionFrom =
+  | StartingEquipmentOptionsArrayFrom
+  | StartingEquipmentCategoryFrom;
+
+export interface StartingEquipmentOptionsArrayFrom {
+  option_set_type: "options_array";
+  options: StartingEquipmentOptionItem[];
 }
 
-export interface FluffyOption {
-  option_type: string;
-  count?: number;
-  of?: Proficiency;
-  choice?: Choice;
+export interface StartingEquipmentCategoryFrom {
+  option_set_type: "equipment_category";
+  equipment_category: Proficiency;
+}
+
+export type StartingEquipmentOptionItem =
+  | CountedReferenceOption
+  | MultipleOption
+  | ChoiceOption
+  | EquipmentCategoryOption;
+
+export interface CountedReferenceOption {
+  option_type: "counted_reference";
+  count: number;
+  of: Proficiency;
+  prerequisites?: OptionPrerequisite[];
+}
+
+export interface MultipleOption {
+  option_type: "multiple";
+  items: CountedReferenceOption[];
+}
+
+export interface ChoiceOption {
+  option_type: "choice";
+  choice: Choice;
+}
+
+export interface EquipmentCategoryOption {
+  option_type: "equipment_category";
+  equipment_category: Proficiency;
+}
+
+export interface OptionPrerequisite {
+  type: string;
+  proficiency: Proficiency;
 }
 
 export interface Choice {
@@ -79,6 +114,6 @@ export interface Choice {
 }
 
 export interface ChoiceFrom {
-  option_set_type: string;
+  option_set_type: "equipment_category";
   equipment_category: Proficiency;
 }
