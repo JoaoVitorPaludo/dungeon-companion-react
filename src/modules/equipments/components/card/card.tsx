@@ -35,7 +35,7 @@ export function EquipmentCard() {
               <div>
                 <h3>{t("cost")}</h3>
                 <p>
-                  {data?.cost.quantity} ({data?.cost.unit})
+                  {data?.cost?.quantity} ({data?.cost?.unit})
                 </p>
               </div>
               <div>
