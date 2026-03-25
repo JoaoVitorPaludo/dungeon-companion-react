@@ -62,6 +62,15 @@ export const ImageContainer = styled.div`
     padding: 1rem;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
   }
+
+  span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: ${(props) => props.theme["primary-text-color"]};
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
 `;
 
 export const DetailsContainer = styled.div`

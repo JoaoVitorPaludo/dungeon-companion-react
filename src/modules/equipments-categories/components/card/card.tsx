@@ -1,4 +1,3 @@
-import { EQUIPMENT_DETAIL_PATH } from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import * as S from "./styles";
 import { useCard } from "./use-card";
@@ -20,9 +19,15 @@ export function EquipmentCategoriesCard() {
             <ul>
               {data?.equipment?.map((item) => (
                 <li
-                  onClick={() =>
-                    navigate(EQUIPMENT_DETAIL_PATH.replace(":id", item.index))
-                  }
+                  onClick={() => {
+                    const [resource, id] = item.url
+                      .replace("/api/2014/", "")
+                      .split("/");
+
+                    if (!resource || !id) return;
+
+                    navigate(`/${resource}/${id}`);
+                  }}
                   key={item.index}
                 >
                   {item.name}
