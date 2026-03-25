@@ -1,7 +1,7 @@
 import { MONSTERS_DETAIL_PATH } from "../../../app/routes/routes.constants";
 import { Loading3D } from "../../../commons/animations/d20-dice";
 import {
-  cardVariants,
+  fastCardVariants,
   listVariants,
 } from "../../../commons/animations/variants";
 import { SearchField } from "../../../components/ui/search-field/search-field";
@@ -31,7 +31,7 @@ export function Monsters() {
           return (
             <S.MonstersCardContainer
               key={item.index}
-              variants={cardVariants}
+              variants={fastCardVariants}
               onClick={() =>
                 navigate(MONSTERS_DETAIL_PATH.replace(":id", item.index))
               }

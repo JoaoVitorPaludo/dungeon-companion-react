@@ -15,5 +15,10 @@ export const useCard = () => {
 
   const imageUrl = data?.image ? `${DND_BASE_URL}${data.image}` : undefined;
 
-  return { data, isLoading, t, url, imageUrl };
+  const getModifier = (score: number) => {
+    const mod = Math.floor((score - 10) / 2);
+    return mod >= 0 ? `+${mod}` : `${mod}`;
+  };
+
+  return { data, isLoading, t, url, imageUrl, getModifier };
 };

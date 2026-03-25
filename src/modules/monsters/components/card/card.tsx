@@ -4,7 +4,7 @@ import * as S from "./styles";
 import { useCard } from "./use-card";
 
 export function MonstersCard() {
-  const { data, t, url, isLoading, imageUrl } = useCard();
+  const { data, t, url, isLoading, imageUrl, getModifier } = useCard();
 
   return (
     <S.MonstersCardContainer>
@@ -73,6 +73,47 @@ export function MonstersCard() {
               </S.StatsContainer>
             </S.DetailsContainer>
           </S.MonsterHeader>
+
+          {data?.strength !== undefined && (
+            <S.AbilitiesGrid>
+              <S.AbilityCard>
+                <strong>STR</strong>
+                <span>
+                  {data.strength} ({getModifier(data.strength)})
+                </span>
+              </S.AbilityCard>
+              <S.AbilityCard>
+                <strong>DEX</strong>
+                <span>
+                  {data.dexterity} ({getModifier(data.dexterity)})
+                </span>
+              </S.AbilityCard>
+              <S.AbilityCard>
+                <strong>CON</strong>
+                <span>
+                  {data.constitution} ({getModifier(data.constitution)})
+                </span>
+              </S.AbilityCard>
+              <S.AbilityCard>
+                <strong>INT</strong>
+                <span>
+                  {data.intelligence} ({getModifier(data.intelligence)})
+                </span>
+              </S.AbilityCard>
+              <S.AbilityCard>
+                <strong>WIS</strong>
+                <span>
+                  {data.wisdom} ({getModifier(data.wisdom)})
+                </span>
+              </S.AbilityCard>
+              <S.AbilityCard>
+                <strong>CHA</strong>
+                <span>
+                  {data.charisma} ({getModifier(data.charisma)})
+                </span>
+              </S.AbilityCard>
+            </S.AbilitiesGrid>
+          )}
 
           <S.DescriptionContainer>
             {data?.special_abilities && data.special_abilities.length > 0 && (

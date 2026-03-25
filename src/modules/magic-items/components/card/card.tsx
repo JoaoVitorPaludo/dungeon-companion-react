@@ -1,17 +1,20 @@
 import { EQUIPMENT_CATEGORIES_DETAIL_PATH } from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import { BadgeComponent } from "../../../../components/ui/badge/badge";
-import { useEffect, useState } from "react";
 import * as S from "./styles";
 import { useCard } from "./use-card";
 
 export function MagicItemsCard() {
-  const { data, t, url, isLoading, imageUrl, navigate } = useCard();
-  const [hasImageError, setHasImageError] = useState(false);
-
-  useEffect(() => {
-    setHasImageError(false);
-  }, [imageUrl]);
+  const {
+    data,
+    t,
+    url,
+    isLoading,
+    imageUrl,
+    navigate,
+    setHasImageError,
+    hasImageError,
+  } = useCard();
 
   return (
     <S.ItemsCardContainer>
