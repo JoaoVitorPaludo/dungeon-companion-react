@@ -4,12 +4,8 @@ export interface CardData {
   url: string;
   updated_at: Date;
   desc: string[];
-  prerequisites: Prerequisites[];
+  prerequisites: PrerequisitesLevel[];
   class: Class;
-}
-interface Prerequisites {
-  minimum_score: number;
-  ability_score: AbilityScore;
 }
 
 interface AbilityScore {
@@ -22,3 +18,13 @@ interface Class {
   name: string;
   url: string;
 }
+
+interface PrerequisitesLevel {
+  level: number;
+  type: string;
+}
+interface Prerequisites {
+  minimum_score: number;
+  ability_score: AbilityScore;
+}
+export type PrerequisitesType = PrerequisitesLevel | Prerequisites;

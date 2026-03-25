@@ -43,3 +43,15 @@ export const cardVariants: Variants = {
     },
   },
 };
+
+export const fastCardVariants: Variants = {
+  hidden: { x: -40, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.01,
+      ease: "easeInOut",
+    },
+  },
+};
