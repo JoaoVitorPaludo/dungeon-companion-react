@@ -25,3 +25,4 @@ export * from "./subraces/subraces";
 export * from "./traits/traits";
 export * from "./weapon-properties/weapon-properties";
 export * from "./global/global";
+export * from "./rule-sections/rule-sections";

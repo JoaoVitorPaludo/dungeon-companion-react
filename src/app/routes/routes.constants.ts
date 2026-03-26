@@ -44,6 +44,8 @@ import { Traits } from "../../modules/traits";
 import { TraitsCard } from "../../modules/traits/components/card/card";
 import { WeaponPropertiesCard } from "../../modules/weapon-properties/components/card/card";
 import { WeaponProperties } from "../../modules/weapon-properties";
+import { RuleSections } from "../../modules/rule-sections";
+import { RuleSectionCard } from "../../modules/rule-sections/components/card/card";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
@@ -96,6 +98,9 @@ export const PROFICIENCIES_DETAIL_PATH = "/proficiencies/:id";
 
 export const RACES_PATH = "/races";
 export const RACES_DETAIL_PATH = "/races/:id";
+
+export const RULE_SECTIONS_PATH = "/rule-sections";
+export const RULE_SECTIONS_DETAIL_PATH = "/rule-sections/:id";
 
 export const SKILLS_PATH = "/skills";
 export const SKILLS_DETAIL_PATH = "/skills/:id";
@@ -290,6 +295,16 @@ export const PUBLIC_ROUTES = [
     path: RACES_DETAIL_PATH,
     key: "races-detail",
     element: RacesCard,
+  },
+  {
+    path: RULE_SECTIONS_PATH,
+    key: "rule-sections",
+    element: RuleSections,
+  },
+  {
+    path: RULE_SECTIONS_DETAIL_PATH,
+    key: "rule-sections-detail",
+    element: RuleSectionCard,
   },
   {
     path: SKILLS_PATH,
