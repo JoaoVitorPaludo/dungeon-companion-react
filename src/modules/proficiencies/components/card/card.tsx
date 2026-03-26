@@ -1,10 +1,11 @@
+import { CLASSES_DETAIL_PATH } from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import { BadgeComponent } from "../../../../components/ui/badge/badge";
 import * as S from "./styles";
 import { useCard } from "./use-card";
 
 export function ProficienciesCard() {
-  const { data, t, url, isLoading, equipmentData } = useCard();
+  const { data, t, url, isLoading, equipmentData, navigate } = useCard();
 
   return (
     <S.ProficienciesCardContainer>
@@ -26,6 +27,11 @@ export function ProficienciesCard() {
             {equipmentData?.cost && (
               <BadgeComponent variant="secondary" size="small">
                 {equipmentData.cost.quantity} {equipmentData.cost.unit}
+              </BadgeComponent>
+            )}
+            {equipmentData?.ability_score && (
+              <BadgeComponent variant="secondary" size="small">
+                {equipmentData.ability_score.name}
               </BadgeComponent>
             )}
             {equipmentData?.properties &&
@@ -56,14 +62,23 @@ export function ProficienciesCard() {
               </S.Section>
             )}
             {data?.classes && data.classes.length > 0 && (
-              <S.Section>
+              <S.SectionLinkListStyle>
                 <h3>{t("classes")}</h3>
                 <ul>
                   {data.classes.map((classe: any, index: number) => (
-                    <li key={index}>{classe.name}</li>
+                    <li
+                      key={index}
+                      onClick={() =>
+                        navigate(
+                          CLASSES_DETAIL_PATH.replace(":id", classe.index),
+                        )
+                      }
+                    >
+                      {classe.name}
+                    </li>
                   ))}
                 </ul>
-              </S.Section>
+              </S.SectionLinkListStyle>
             )}
 
             {data?.races && data.races.length > 0 && (

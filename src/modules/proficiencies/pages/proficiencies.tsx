@@ -1,7 +1,7 @@
 import { PROFICIENCIES_DETAIL_PATH } from "../../../app/routes/routes.constants";
 import { Loading3D } from "../../../commons/animations/d20-dice";
 import {
-  cardVariants,
+  fastCardVariants,
   listVariants,
 } from "../../../commons/animations/variants";
 import { SearchField } from "../../../components/ui/search-field/search-field";
@@ -35,7 +35,7 @@ export function Proficiencies() {
           return (
             <S.ProficienciesCardContainer
               key={item.index}
-              variants={cardVariants}
+              variants={fastCardVariants}
               onClick={() =>
                 navigate(PROFICIENCIES_DETAIL_PATH.replace(":id", item.index))
               }

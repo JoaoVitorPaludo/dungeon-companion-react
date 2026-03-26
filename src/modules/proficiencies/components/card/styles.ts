@@ -14,7 +14,7 @@ export const ProficienciesCardContent = styled(motion.div)`
   padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid ${(props) => props.theme.border};
-  min-width: 300px;
+  min-width: 600px;
   min-height: 80%;
   display: flex;
   flex-direction: column;
@@ -103,6 +103,30 @@ export const Section = styled.div`
     li {
       margin-bottom: 0.8rem;
       line-height: 1.5;
+    }
+  }
+`;
+export const SectionLinkListStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0rem !important;
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 `;

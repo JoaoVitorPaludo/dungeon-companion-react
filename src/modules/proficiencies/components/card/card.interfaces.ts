@@ -25,6 +25,7 @@ export interface ProficienciesCardProps {
   cost: Cost;
   damage: Damage;
   desc: string[];
+  ability_score?: AbilityScore;
 }
 interface Properties {
   index: string;
@@ -37,4 +38,10 @@ interface Cost {
 }
 interface Damage {
   damage_dice: string;
+}
+
+interface AbilityScore {
+  index: string;
+  name: string;
+  url: string;
 }

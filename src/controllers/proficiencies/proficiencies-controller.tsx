@@ -10,7 +10,7 @@ export const getProficienciesByIndex = async (index: string) => {
   return response.data;
 };
 
-export const getProficienciesDetailsByUrl = async (index: string) => {
-  const response = await api.get(`/equipment/${index}`);
+export const getProficienciesDetailsByUrl = async (url: string) => {
+  const response = await api.get(url);
   return response.data;
 };
