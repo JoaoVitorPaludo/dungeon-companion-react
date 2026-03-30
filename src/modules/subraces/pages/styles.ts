@@ -26,7 +26,7 @@ export const SubracesCardsContainer = styled(motion.div)`
   gap: 1rem;
   inset: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 `;
 export const SubracesCardContainer = styled(motion.div)`
   display: flex;
@@ -38,7 +38,7 @@ export const SubracesCardContainer = styled(motion.div)`
   border-radius: 0.5rem;
   height: 100px;
   cursor: pointer;
-  max-width: 300px;
+  /* max-width: 300px; */
   &:hover {
     transition: all 0.2s ease-in-out;
     transform: translateY(-3px);

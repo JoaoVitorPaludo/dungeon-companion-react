@@ -1,5 +1,6 @@
 import {
   LANGUAGES_DETAIL_PATH,
+  SUBRACES_DETAIL_PATH,
   TRAITS_DETAIL_PATH,
 } from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
@@ -111,6 +112,11 @@ export function RacesCard() {
                         key={subrace.index}
                         variant="secondary"
                         size="small"
+                        onClick={() =>
+                          navigate(
+                            SUBRACES_DETAIL_PATH.replace(":id", subrace.index),
+                          )
+                        }
                       >
                         {subrace.name}
                       </Badge>

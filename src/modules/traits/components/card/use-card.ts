@@ -2,10 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { CardData } from "./card.interfaces";
 import { getTraitByIndex } from "../../../../controllers/traits/traits-controller";
+import { useNavigate } from "react-router";
 
 export const useCard = () => {
   const url = new URL(window.location.href);
   const { t } = useTranslation("traits");
+  const navigate = useNavigate();
 
   const { data, isLoading } = useQuery<CardData>({
     queryKey: ["dnd-traits-detail"],
@@ -17,5 +19,6 @@ export const useCard = () => {
     isLoading,
     t,
     url,
+    navigate,
   };
 };
