@@ -1,4 +1,7 @@
-import { CLASSES_DETAIL_PATH } from "../../../../app/routes/routes.constants";
+import {
+  CLASSES_DETAIL_PATH,
+  RACES_DETAIL_PATH,
+} from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import { BadgeComponent } from "../../../../components/ui/badge/badge";
 import * as S from "./styles";
@@ -82,14 +85,21 @@ export function ProficienciesCard() {
             )}
 
             {data?.races && data.races.length > 0 && (
-              <S.Section>
+              <S.SectionLinkListStyle>
                 <h3>{t("races")}</h3>
                 <ul>
                   {data.races.map((race: any, index: number) => (
-                    <li key={index}>{race.name}</li>
+                    <li
+                      key={index}
+                      onClick={() =>
+                        navigate(RACES_DETAIL_PATH.replace(":id", race.index))
+                      }
+                    >
+                      {race.name}
+                    </li>
                   ))}
                 </ul>
-              </S.Section>
+              </S.SectionLinkListStyle>
             )}
           </S.DescriptionContainer>
         </S.ProficienciesCardContent>
