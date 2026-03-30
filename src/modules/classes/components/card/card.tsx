@@ -34,7 +34,7 @@ export function ClassesCard() {
           <S.Section>
             <h2>{t("proficiencies_choices")}</h2>
             <ul>
-              {data?.proficiency_choices.map((item, index) => (
+              {data?.proficiency_choices?.map((item, index) => (
                 <li key={index}>{item.desc}</li>
               ))}
             </ul>

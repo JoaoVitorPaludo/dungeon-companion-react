@@ -7,6 +7,9 @@ export const ItemsCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const ItemsCardContent = styled(motion.div)`
@@ -30,6 +33,9 @@ export const ItemsCardContent = styled(motion.div)`
     margin-bottom: 0.5rem;
     text-transform: capitalize;
     color: ${(props) => props.theme.foreground};
+  }
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 

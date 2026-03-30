@@ -7,6 +7,9 @@ export const DamageTypesCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const DamageTypesCardContent = styled(motion.div)`
@@ -24,6 +27,9 @@ export const DamageTypesCardContent = styled(motion.div)`
 
   h2 {
     font-size: 1.9rem;
+  }
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
-export const EquipmentCardContainer = styled.div`
+export const RulesCardContainer = styled.div`
   display: flex;
   padding: 2rem;
   justify-content: center;
@@ -12,18 +12,22 @@ export const EquipmentCardContainer = styled.div`
   }
 `;
 
-export const EquipmentCardContent = styled(motion.div)`
+export const RulesCardContent = styled(motion.div)`
   background-color: ${(props) => props.theme["muted-background"]};
   padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid ${(props) => props.theme.border};
-  min-width: 50%;
+  min-width: 60%;
   min-height: 80%;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
   ul {
     list-style: inside;
     gap: 0.5rem;
@@ -37,11 +41,10 @@ export const EquipmentCardContent = styled(motion.div)`
     font-size: 1.2rem;
     color: ${(props) => props.theme["green-500"]};
   }
-  @media (max-width: 768px) {
-    min-width: 100%;
+  p {
   }
 `;
-export const EquipmentCardNoDataContainer = styled.div`
+export const RulesCardNoDataContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,12 +52,19 @@ export const EquipmentCardNoDataContainer = styled.div`
   font-size: 1.2rem;
 `;
 
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+`;
+
 export const Section = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 
-  h2 {
+  h3 {
     font-size: 1.4rem;
     color: ${(props) => props.theme["green-500"]};
     border-bottom: 1px solid ${(props) => props.theme.border};
@@ -62,32 +72,13 @@ export const Section = styled.div`
   }
 
   ul {
-    list-style: inside;
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
 
-  li {
-    line-height: 1.5;
-  }
-`;
-
-export const SectionGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-    color: ${(props) => props.theme["green-500"]};
+    li {
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
   }
 `;

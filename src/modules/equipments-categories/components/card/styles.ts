@@ -7,6 +7,9 @@ export const EquipmentsCategoriesCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const EquipmentsCategoriesCardContent = styled(motion.div)`
@@ -21,6 +24,9 @@ export const EquipmentsCategoriesCardContent = styled(motion.div)`
   gap: 0.8rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
   ul {
     list-style: inside;
     gap: 0.5rem;

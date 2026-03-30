@@ -7,6 +7,9 @@ export const FeatsCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const FeatsCardContent = styled(motion.div)`
@@ -35,6 +38,9 @@ export const FeatsCardContent = styled(motion.div)`
     color: ${(props) => props.theme["green-500"]};
   }
   p {
+  }
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 export const FeatsCardNoDataContainer = styled.div`

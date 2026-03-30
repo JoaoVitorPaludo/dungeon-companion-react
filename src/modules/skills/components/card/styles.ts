@@ -7,6 +7,9 @@ export const SkillsCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const SkillsCardContent = styled(motion.div)`
@@ -34,7 +37,8 @@ export const SkillsCardContent = styled(motion.div)`
     font-size: 1.2rem;
     color: ${(props) => props.theme["green-500"]};
   }
-  p {
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 export const SkillsCardNoDataContainer = styled.div`
