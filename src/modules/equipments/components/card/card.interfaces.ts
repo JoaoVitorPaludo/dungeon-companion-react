@@ -1,16 +1,21 @@
 export interface CardData {
-  special: any[];
+  special?: string[];
   index: string;
   name: string;
   equipment_category: Category;
-  gear_category: Category;
+  gear_category?: Category;
   cost: Cost;
-  weight: number;
-  desc: string[];
+  weight?: number;
+  desc?: string[];
   url: string;
   updated_at: Date;
-  contents: any[];
-  properties: Properties[];
+  contents?: Content[];
+  properties?: Properties[];
+}
+
+export interface Content {
+  item: Category;
+  quantity: number;
 }
 
 export interface Cost {

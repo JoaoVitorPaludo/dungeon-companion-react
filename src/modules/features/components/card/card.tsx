@@ -11,7 +11,6 @@ export function FeatureCard() {
       {isLoading ? (
         <S.FeatsCardNoDataContainer>
           <Loading3D />
-          Loading...
         </S.FeatsCardNoDataContainer>
       ) : (
         <S.FeatsCardContent>
@@ -27,7 +26,8 @@ export function FeatureCard() {
               {data?.prerequisites &&
                 data.prerequisites.map((item, index) => (
                   <BadgeComponent key={index} variant="secondary">
-                    {t(item.ability_score.index)}: {item.minimum_score}
+                    {item.type}: {item.level}
+                    {/* {t(item.ability_score.index)}: {item.minimum_score} */}
                   </BadgeComponent>
                 ))}
             </S.BadgeContainer>

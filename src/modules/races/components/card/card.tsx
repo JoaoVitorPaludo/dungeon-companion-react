@@ -1,10 +1,15 @@
+import {
+  LANGUAGES_DETAIL_PATH,
+  SUBRACES_DETAIL_PATH,
+  TRAITS_DETAIL_PATH,
+} from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import { Badge } from "../../../../components/ui/badge/styles";
 import * as S from "./styles";
 import { useCard } from "./use-card";
 
 export function RacesCard() {
-  const { data, t, url, isLoading } = useCard();
+  const { data, t, url, isLoading, navigate } = useCard();
 
   return (
     <S.RacesCardContainer>
@@ -63,7 +68,16 @@ export function RacesCard() {
                 <h3>{t("languages")}</h3>
                 <S.BadgeContainer>
                   {data?.languages?.map((lang) => (
-                    <Badge key={lang.index} variant="secondary" size="small">
+                    <Badge
+                      key={lang.index}
+                      variant="secondary"
+                      size="small"
+                      onClick={() =>
+                        navigate(
+                          LANGUAGES_DETAIL_PATH.replace(":id", lang.index),
+                        )
+                      }
+                    >
                       {lang.name}
                     </Badge>
                   ))}
@@ -75,7 +89,14 @@ export function RacesCard() {
                 <h3>{t("traits")}</h3>
                 <S.BadgeContainer>
                   {data?.traits?.map((trait) => (
-                    <Badge key={trait.index} variant="secondary" size="small">
+                    <Badge
+                      key={trait.index}
+                      variant="secondary"
+                      size="small"
+                      onClick={() =>
+                        navigate(TRAITS_DETAIL_PATH.replace(":id", trait.index))
+                      }
+                    >
                       {trait.name}
                     </Badge>
                   ))}
@@ -91,6 +112,11 @@ export function RacesCard() {
                         key={subrace.index}
                         variant="secondary"
                         size="small"
+                        onClick={() =>
+                          navigate(
+                            SUBRACES_DETAIL_PATH.replace(":id", subrace.index),
+                          )
+                        }
                       >
                         {subrace.name}
                       </Badge>

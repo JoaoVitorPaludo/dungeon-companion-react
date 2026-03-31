@@ -1,10 +1,11 @@
+import { CLASSES_DETAIL_PATH } from "../../../../app/routes/routes.constants";
 import { Loading3D } from "../../../../commons/animations/d20-dice";
 import { BadgeComponent } from "../../../../components/ui/badge/badge";
 import * as S from "./styles";
 import { useCard } from "./use-card";
 
 export function SpellsCard() {
-  const { data, t, url, isLoading, componentsConstants } = useCard();
+  const { data, t, url, isLoading, componentsConstants, navigate } = useCard();
 
   return (
     <S.SpellsCardContainer>
@@ -19,7 +20,13 @@ export function SpellsCard() {
           {data?.classes && data?.classes.length > 0 && (
             <S.BadgeContainer>
               {data?.classes.map((item) => (
-                <BadgeComponent variant="primary" size="small">
+                <BadgeComponent
+                  variant="primary"
+                  size="small"
+                  onClick={() =>
+                    navigate(CLASSES_DETAIL_PATH.replace(":id", item.index))
+                  }
+                >
                   {item.name}
                 </BadgeComponent>
               ))}

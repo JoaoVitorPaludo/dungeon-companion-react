@@ -7,6 +7,9 @@ export const EquipmentsCategoriesCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const EquipmentsCategoriesCardContent = styled(motion.div)`
@@ -21,6 +24,9 @@ export const EquipmentsCategoriesCardContent = styled(motion.div)`
   gap: 0.8rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
   ul {
     list-style: inside;
     gap: 0.5rem;
@@ -50,4 +56,28 @@ export const EquipmentsCategoriesSideInfoContainer = styled.div`
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
+`;
+export const SectionLinkListStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0rem !important;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 `;

@@ -7,6 +7,9 @@ export const ItemsCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const ItemsCardContent = styled(motion.div)`
@@ -30,6 +33,9 @@ export const ItemsCardContent = styled(motion.div)`
     margin-bottom: 0.5rem;
     text-transform: capitalize;
     color: ${(props) => props.theme.foreground};
+  }
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 
@@ -61,6 +67,15 @@ export const ImageContainer = styled.div`
     object-fit: contain;
     padding: 1rem;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  }
+
+  span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: ${(props) => props.theme["primary-text-color"]};
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 `;
 

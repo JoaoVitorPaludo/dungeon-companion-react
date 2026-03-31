@@ -7,6 +7,9 @@ export const BackgroundCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const BackgroundCardContent = styled(motion.div)`
@@ -36,6 +39,9 @@ export const BackgroundCardContent = styled(motion.div)`
   }
   p {
   }
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
 `;
 export const BackgroundCardNoDataContainer = styled.div`
   display: flex;
@@ -43,4 +49,49 @@ export const BackgroundCardNoDataContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+`;
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+  }
+`;
+export const SectionListStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+
+    li {
+      line-height: 1.5;
+    }
+  }
 `;

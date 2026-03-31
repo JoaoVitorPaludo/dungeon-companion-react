@@ -7,6 +7,9 @@ export const DamageTypesCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const DamageTypesCardContent = styled(motion.div)`
@@ -21,18 +24,12 @@ export const DamageTypesCardContent = styled(motion.div)`
   gap: 0.8rem;
   max-width: 60%;
   font-family: "Space Grotesk", sans-serif;
-  ul {
-    list-style: inside;
-    gap: 0.5rem;
-    display: flex;
-    flex-direction: column;
-  }
+
   h2 {
     font-size: 1.9rem;
   }
-  span {
-    font-size: 1.2rem;
-    color: ${(props) => props.theme["green-500"]};
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 
@@ -42,4 +39,27 @@ export const DamageTypesCardNoDataContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+`;
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem !important;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+  }
 `;

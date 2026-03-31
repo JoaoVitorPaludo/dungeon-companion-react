@@ -7,6 +7,9 @@ export const FeatsCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const FeatsCardContent = styled(motion.div)`
@@ -26,10 +29,13 @@ export const FeatsCardContent = styled(motion.div)`
     0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     margin-bottom: 0.5rem;
     text-transform: capitalize;
     color: ${(props) => props.theme.foreground};
+  }
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 

@@ -2,7 +2,7 @@ import { Loading3D } from "../../../../commons/animations/d20-dice";
 import * as S from "./styles";
 import { useCard } from "./use-card";
 export function EquipmentCategoriesCard() {
-  const { data, t, url, isLoading } = useCard();
+  const { data, t, url, isLoading, navigate } = useCard();
 
   return (
     <S.EquipmentsCategoriesCardContainer>
@@ -14,12 +14,27 @@ export function EquipmentCategoriesCard() {
       ) : (
         <S.EquipmentsCategoriesCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>{t("equipment")}</span>
-          <ul>
-            {data?.equipment.map((item) => (
-              <li key={item.index}>{item.name}</li>
-            ))}
-          </ul>
+          <S.SectionLinkListStyle>
+            <h2>{t("equipment")}</h2>
+            <ul>
+              {data?.equipment?.map((item) => (
+                <li
+                  onClick={() => {
+                    const [resource, id] = item.url
+                      .replace("/api/2014/", "")
+                      .split("/");
+
+                    if (!resource || !id) return;
+
+                    navigate(`/${resource}/${id}`);
+                  }}
+                  key={item.index}
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </S.SectionLinkListStyle>
         </S.EquipmentsCategoriesCardContent>
       )}
     </S.EquipmentsCategoriesCardContainer>

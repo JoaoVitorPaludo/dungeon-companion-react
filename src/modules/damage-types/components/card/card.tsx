@@ -15,13 +15,10 @@ export function DamageTypesCard() {
       ) : (
         <S.DamageTypesCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>{t("description")}</span>
-          {data?.desc.map((desc) => (
-            <p key={desc}>
-              {desc}
-              <br />
-            </p>
-          ))}
+          <S.Section>
+            <h2>{t("description")}</h2>
+            <ul>{data?.desc.map((desc) => <li key={desc}>{desc}</li>)}</ul>
+          </S.Section>
         </S.DamageTypesCardContent>
       )}
     </S.DamageTypesCardContainer>

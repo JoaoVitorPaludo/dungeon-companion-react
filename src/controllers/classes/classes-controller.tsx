@@ -9,3 +9,8 @@ export const getClassesByIndex = async (index: string) => {
   const response = await api.get(`/classes/${index}`);
   return response.data;
 };
+
+export const getProficiencyByEquipmentIndex = async (index: string) => {
+  const response = await api.get(`/equipment-categories/${index}`);
+  return response.data;
+};

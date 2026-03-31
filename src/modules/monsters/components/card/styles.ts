@@ -7,6 +7,9 @@ export const MonstersCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const MonstersCardContent = styled(motion.div)`
@@ -35,6 +38,9 @@ export const MonstersCardContent = styled(motion.div)`
     color: ${(props) => props.theme["green-500"]};
   }
   p {
+  }
+  @media (max-width: 768px) {
+    min-width: 100%;
   }
 `;
 export const MonstersCardNoDataContainer = styled.div`
@@ -102,6 +108,43 @@ export const StatsContainer = styled.div`
   }
   strong {
     color: ${(props) => props.theme["green-500"]};
+  }
+`;
+
+export const AbilitiesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background-color: ${(props) => props.theme.background};
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid ${(props) => props.theme.border};
+  text-align: center;
+  margin-top: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+`;
+
+export const AbilityCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  strong {
+    font-weight: bold;
+    color: ${(props) => props.theme["green-500"]};
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  span {
+    font-size: 1.1rem;
+    color: ${(props) =>
+      props.theme.foreground || props.theme["primary-text-color"]};
   }
 `;
 

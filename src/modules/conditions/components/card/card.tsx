@@ -5,24 +5,21 @@ export function ConditionsCard() {
   const { data, t, url, isLoading } = useCard();
 
   return (
-    <S.ClassesCardContainer>
+    <S.ConditionsCardContainer>
       {isLoading ? (
-        <S.ClassesCardNoDataContainer>
+        <S.ConditionsCardNoDataContainer>
           <Loading3D />
           Loading...
-        </S.ClassesCardNoDataContainer>
+        </S.ConditionsCardNoDataContainer>
       ) : (
-        <S.ClassesCardContent>
+        <S.ConditionsCardContent>
           <h2>{t(url.pathname.split("/").slice(-1)[0])}</h2>
-          <span>{t("description")}</span>
-          {data?.desc.map((desc) => (
-            <p key={desc}>
-              {desc}
-              <br />
-            </p>
-          ))}
-        </S.ClassesCardContent>
+          <S.Section>
+            <h2>{t("description")}</h2>
+            <ul>{data?.desc.map((desc) => <li key={desc}>{desc}</li>)}</ul>
+          </S.Section>
+        </S.ConditionsCardContent>
       )}
-    </S.ClassesCardContainer>
+    </S.ConditionsCardContainer>
   );
 }

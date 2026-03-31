@@ -7,6 +7,9 @@ export const ClassesCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    padding: 0rem;
+  }
 `;
 
 export const ClassesCardContent = styled(motion.div)`
@@ -14,7 +17,7 @@ export const ClassesCardContent = styled(motion.div)`
   padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid ${(props) => props.theme.border};
-  min-width: 300px;
+  min-width: 50%;
   min-height: 80%;
   display: flex;
   flex-direction: column;
@@ -36,6 +39,9 @@ export const ClassesCardContent = styled(motion.div)`
   }
   p {
   }
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
 `;
 export const ClassesCardNoDataContainer = styled.div`
   display: flex;
@@ -43,4 +49,80 @@ export const ClassesCardNoDataContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+`;
+
+export const ClassesHitDiceContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+`;
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+  }
+`;
+export const SectionListStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+
+    li {
+      line-height: 1.5;
+    }
+  }
+`;
+export const SectionLinkListStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme["green-500"]};
+    border-bottom: 1px solid ${(props) => props.theme.border};
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0rem !important;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 `;

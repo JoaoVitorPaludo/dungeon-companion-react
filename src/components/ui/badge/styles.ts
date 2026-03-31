@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 type BadgeProps = {
   variant: "primary" | "secondary";
   size?: "small" | "medium" | "large";
+  onClick?: () => void;
 };
 export const Badge = styled.span<BadgeProps>`
   display: flex;
@@ -59,4 +60,6 @@ export const Badge = styled.span<BadgeProps>`
       props.variant === "primary"
         ? props.theme["green-500"]
         : props.theme.border};
+
+  cursor: ${(props) => (props.onClick ? "pointer" : "default")};
 `;

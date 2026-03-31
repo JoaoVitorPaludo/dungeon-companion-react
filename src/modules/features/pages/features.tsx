@@ -1,9 +1,6 @@
 import { FEATURES_DETAIL_PATH } from "../../../app/routes/routes.constants";
 import { Loading3D } from "../../../commons/animations/d20-dice";
-import {
-  cardVariants,
-  listVariants,
-} from "../../../commons/animations/variants";
+import { listVariants } from "../../../commons/animations/variants";
 import { SearchField } from "../../../components/ui/search-field/search-field";
 import { FEATURES_FALLBACK_ICON, FEATURES_ICONS } from "./features.constants";
 import * as S from "./styles";
@@ -31,7 +28,7 @@ export function Features() {
           return (
             <S.FeaturesCardContainer
               key={item.index}
-              variants={cardVariants}
+              // variants={fastCardVariants}
               onClick={() =>
                 navigate(FEATURES_DETAIL_PATH.replace(":id", item.index))
               }
