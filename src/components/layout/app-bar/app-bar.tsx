@@ -1,15 +1,16 @@
-import { ArrowLeft, Languages, Moon, Sun } from "lucide-react";
+import { ArrowLeft, Languages, Moon, ScrollText, Sun } from "lucide-react";
 import * as S from "./styles";
 import { TooltipComponent } from "../../ui/tooltip/tooltip";
 import { useAppStore } from "../../../store/use-app-store/use-app-store";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
+import { RPG_CHARACTER_SHEETS_PATH } from "../../../app/routes/routes.constants";
+
 export function AppBar() {
   const { theme, setTheme, toggleLanguage } = useAppStore();
   const { t } = useTranslation("appBar");
   const navigate = useNavigate();
   const url = new URL(window.location.href);
-  console.log(url);
 
   return (
     <S.AppBarContainer>
@@ -23,14 +24,29 @@ export function AppBar() {
       )}
       <S.AppBarActions>
         <S.ActionsContainer>
+          <TooltipComponent content={t("tooltipCharacterSheets")} side="bottom">
+            <S.ThemeToggle
+              aria-label={t("tooltipCharacterSheets")}
+              onClick={() => navigate(RPG_CHARACTER_SHEETS_PATH)}
+              type="button"
+            >
+              <ScrollText size={20} />
+            </S.ThemeToggle>
+          </TooltipComponent>
           <TooltipComponent content={t("tooltipLanguage")} side="bottom">
-            <S.ThemeToggle onClick={toggleLanguage}>
+            <S.ThemeToggle
+              aria-label={t("tooltipLanguage")}
+              onClick={toggleLanguage}
+              type="button"
+            >
               <Languages size={20} />
             </S.ThemeToggle>
           </TooltipComponent>
           <TooltipComponent content={t("tooltipTheme")} side="bottom">
             <S.ThemeToggle
+              aria-label={t("tooltipTheme")}
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              type="button"
             >
               {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
             </S.ThemeToggle>

@@ -48,10 +48,19 @@ import { RuleSections } from "../../modules/rule-sections";
 import { RuleSectionCard } from "../../modules/rule-sections/components/card/card";
 import { Rules } from "../../modules/rules";
 import { RulesCard } from "../../modules/rules/components/card/card";
+import {
+  RpgCharacterSheetCreate,
+  RpgCharacterSheetDetail,
+  RpgCharacterSheets,
+} from "../../modules/rpg-character-sheets";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
 export const DASHBOARD_PATH = "/dashboard";
+export const RPG_CHARACTER_SHEETS_PATH = "/rpg-character-sheets";
+export const RPG_CHARACTER_SHEET_CREATE_PATH = "/rpg-character-sheets/new";
+export const RPG_CHARACTER_SHEET_DETAIL_BASE_PATH = "/rpg-character-sheets";
+export const RPG_CHARACTER_SHEET_DETAIL_PATH = "/rpg-character-sheets/:id";
 
 export const ABILITY_SCORES_PATH = "/ability-scores";
 export const ABILITY_SCORES_DETAIL_PATH = "/ability-scores/:id";
@@ -140,6 +149,21 @@ export const PUBLIC_ROUTES = [
     path: DASHBOARD_PATH,
     key: "dashboard",
     element: Dashboard,
+  },
+  {
+    path: RPG_CHARACTER_SHEETS_PATH,
+    key: "rpg-character-sheets",
+    element: RpgCharacterSheets,
+  },
+  {
+    path: RPG_CHARACTER_SHEET_CREATE_PATH,
+    key: "rpg-character-sheets-create",
+    element: RpgCharacterSheetCreate,
+  },
+  {
+    path: RPG_CHARACTER_SHEET_DETAIL_PATH,
+    key: "rpg-character-sheets-detail",
+    element: RpgCharacterSheetDetail,
   },
   {
     path: ABILITY_SCORES_PATH,
