@@ -1,12 +1,10 @@
 import { CharacterCard } from "../../components/character-card/character-card";
-import { CreateCharacterCta } from "../../components/create-character-cta/create-character-cta";
 import * as S from "./styles";
 import { useRpgCharacterSheets } from "./use-rpg-character-sheets";
 
 export function RpgCharacterSheets() {
   const {
     characters,
-    description,
     emptyMessage,
     title,
     handleCreateCharacter,
@@ -16,16 +14,20 @@ export function RpgCharacterSheets() {
   return (
     <S.RpgCharacterSheetsContainer>
       <S.CharacterListContainer>
-        <S.CharacterListHeroSection>
-          <S.CharacterListHeroContent>
-            <S.CharacterListEyebrow>Character Forge</S.CharacterListEyebrow>
+        <S.CharacterListToolbar>
+          <S.CharacterListToolbarContent>
             <S.CharacterListTitle>{title}</S.CharacterListTitle>
-            <S.CharacterListDescription>
-              {description}
-            </S.CharacterListDescription>
-          </S.CharacterListHeroContent>
-          <CreateCharacterCta onClick={handleCreateCharacter} />
-        </S.CharacterListHeroSection>
+            <S.CharacterListToolbarCaption>
+              Seus aventureiros em andamento e prontos para consulta rapida.
+            </S.CharacterListToolbarCaption>
+          </S.CharacterListToolbarContent>
+          <S.CharacterListCreateButton
+            onClick={handleCreateCharacter}
+            type="button"
+          >
+            Novo personagem
+          </S.CharacterListCreateButton>
+        </S.CharacterListToolbar>
 
         {characters.length > 0 ? (
           <S.CharacterListGrid

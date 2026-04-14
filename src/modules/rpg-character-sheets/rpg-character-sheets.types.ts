@@ -6,4 +6,5 @@ export interface RpgCharacterSummary {
   level: number;
   campaign: string;
   updatedAt: string;
+  imageUrl?: string;
 }

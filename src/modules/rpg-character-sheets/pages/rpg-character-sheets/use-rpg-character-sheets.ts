@@ -7,7 +7,6 @@ import type { RpgCharacterSummary } from "../../rpg-character-sheets.types";
 
 interface UseRpgCharacterSheetsReturn {
   title: string;
-  description: string;
   emptyMessage: string;
   characters: RpgCharacterSummary[];
   handleCreateCharacter: () => void;
@@ -56,9 +55,7 @@ export function useRpgCharacterSheets(): UseRpgCharacterSheetsReturn {
   }
 
   return {
-    title: "Personagens criados",
-    description:
-      "Acompanhe suas fichas de D&D 2014 em um painel pensado para consulta rapida, evolucao de nivel e acesso ao detalhamento completo do personagem.",
+    title: "Companheiros de campanha",
     emptyMessage:
       "Nenhum personagem foi criado ainda. Quando voce iniciar uma ficha, ela aparecera aqui.",
     characters: MOCK_CHARACTERS,
