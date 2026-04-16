@@ -1,0 +1,7 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="16" fill="#F7F6F3"/>
+  <rect x="24" y="24" width="432" height="272" rx="12" fill="#FFFFFF" stroke="#EAEAEA"/>
+  <path d="M150 208L190 92H290L330 208H150Z" fill="#FDEBEC"/>
+  <path d="M214 92L240 64L266 92" stroke="#EAEAEA" stroke-width="8" stroke-linecap="round"/>
+  <text x="240" y="262" text-anchor="middle" fill="#2F3437" font-family="Georgia, serif" font-size="24">Dragonborn</text>
+</svg>

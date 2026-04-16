@@ -1,0 +1,8 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="16" fill="#F7F6F3"/>
+  <rect x="24" y="24" width="432" height="272" rx="12" fill="#FFFFFF" stroke="#EAEAEA"/>
+  <rect x="140" y="124" width="200" height="92" rx="46" fill="#FBF3DB"/>
+  <circle cx="196" cy="128" r="22" fill="#EDF3EC"/>
+  <circle cx="284" cy="128" r="22" fill="#E1F3FE"/>
+  <text x="240" y="262" text-anchor="middle" fill="#2F3437" font-family="Georgia, serif" font-size="24">Halfling</text>
+</svg>

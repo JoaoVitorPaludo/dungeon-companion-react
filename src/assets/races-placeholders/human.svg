@@ -1,0 +1,7 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="16" fill="#F7F6F3"/>
+  <rect x="24" y="24" width="432" height="272" rx="12" fill="#FFFFFF" stroke="#EAEAEA"/>
+  <circle cx="240" cy="122" r="42" fill="#FBF3DB"/>
+  <rect x="168" y="168" width="144" height="56" rx="28" fill="#E1F3FE"/>
+  <text x="240" y="262" text-anchor="middle" fill="#2F3437" font-family="Georgia, serif" font-size="24">Human</text>
+</svg>

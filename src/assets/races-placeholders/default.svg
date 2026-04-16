@@ -1,0 +1,7 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="16" fill="#F7F6F3"/>
+  <rect x="24" y="24" width="432" height="272" rx="12" fill="#FFFFFF" stroke="#EAEAEA"/>
+  <path d="M116 196C116 160.654 144.654 132 180 132H300C335.346 132 364 160.654 364 196V208H116V196Z" fill="#EDF3EC"/>
+  <circle cx="240" cy="112" r="44" fill="#FBF3DB"/>
+  <text x="240" y="258" text-anchor="middle" fill="#2F3437" font-family="Georgia, serif" font-size="24">Raca</text>
+</svg>

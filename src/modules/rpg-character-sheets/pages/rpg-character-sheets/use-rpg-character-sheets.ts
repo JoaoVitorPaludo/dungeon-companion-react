@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import {
-  RPG_CHARACTER_SHEET_CREATE_PATH,
+  CHARACTER_CREATION_PATH,
   RPG_CHARACTER_SHEET_DETAIL_BASE_PATH,
 } from "../../../../app/routes/routes.constants";
 import type { RpgCharacterSummary } from "../../rpg-character-sheets.types";
@@ -48,7 +48,7 @@ export function useRpgCharacterSheets(): UseRpgCharacterSheetsReturn {
   const navigate = useNavigate();
 
   function handleCreateCharacter() {
-    navigate(RPG_CHARACTER_SHEET_CREATE_PATH);
+    navigate(CHARACTER_CREATION_PATH);
   }
 
   function handleOpenCharacter(characterId: string) {

@@ -49,12 +49,13 @@ import { RuleSectionCard } from "../../modules/rule-sections/components/card/car
 import { Rules } from "../../modules/rules";
 import { RulesCard } from "../../modules/rules/components/card/card";
 import { RpgCharacterSheets } from "../../modules/rpg-character-sheets";
+import { CharacterCreation } from "../../modules/character-creation";
 
 export const ROOT_PATH = "/dashboard";
 export const HOME_PATH = "/home";
 export const DASHBOARD_PATH = "/dashboard";
 export const RPG_CHARACTER_SHEETS_PATH = "/rpg-character-sheets";
-export const RPG_CHARACTER_SHEET_CREATE_PATH = "/rpg-character-sheets/new";
+export const CHARACTER_CREATION_PATH = "/character-creation";
 export const RPG_CHARACTER_SHEET_DETAIL_BASE_PATH = "/rpg-character-sheets";
 export const RPG_CHARACTER_SHEET_DETAIL_PATH = "/rpg-character-sheets/:id";
 
@@ -151,11 +152,11 @@ export const PUBLIC_ROUTES = [
     key: "rpg-character-sheets",
     element: RpgCharacterSheets,
   },
-  // {
-  //   path: RPG_CHARACTER_SHEET_CREATE_PATH,
-  //   key: "rpg-character-sheets-create",
-  //   element: RpgCharacterSheetCreate,
-  // },
+  {
+    path: CHARACTER_CREATION_PATH,
+    key: "character-creation",
+    element: CharacterCreation,
+  },
   // {
   //   path: RPG_CHARACTER_SHEET_DETAIL_PATH,
   //   key: "rpg-character-sheets-detail",
