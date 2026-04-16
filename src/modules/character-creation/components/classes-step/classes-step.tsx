@@ -25,21 +25,23 @@ export function ClassesStep({
   handleSelectClass,
 }: ClassesStepProps) {
   const { t } = useTranslation("classes");
+  const { t: tCharacterCreation } = useTranslation("characterCreation");
+  const notInformedText = tCharacterCreation("common.notInformed");
 
   return (
     <S.StepContentSection>
       {isLoadingStepTwo && !hasStepTwoError ? (
-        <S.StepStateCard>Carregando classes...</S.StepStateCard>
+        <S.StepStateCard>{tCharacterCreation("classStep.loading")}</S.StepStateCard>
       ) : null}
 
       {hasStepTwoError ? (
         <S.StepStateCard role="alert">
-          Nao foi possivel carregar os dados de classe. Tente novamente.
+          {tCharacterCreation("classStep.error")}
         </S.StepStateCard>
       ) : null}
 
       {!isLoadingStepTwo && classes.length === 0 && !hasStepTwoError ? (
-        <S.StepStateCard>Nenhuma classe disponivel no momento.</S.StepStateCard>
+        <S.StepStateCard>{tCharacterCreation("classStep.empty")}</S.StepStateCard>
       ) : null}
 
       <S.ClassCardsGrid>
@@ -61,13 +63,17 @@ export function ClassesStep({
             >
               <S.ClassCardImageWrapper>
                 <S.ClassCardImage
-                  alt={`Ilustracao da classe ${translatedClassName}`}
+                  alt={tCharacterCreation("classStep.cardAlt", {
+                    name: translatedClassName,
+                  })}
                   loading="lazy"
                   src={classCardContent.imageSrc}
                 />
               </S.ClassCardImageWrapper>
               <S.ClassCardTitle>{translatedClassName}</S.ClassCardTitle>
-              <S.ClassCardSubtitle>{classCardContent.subtitle}</S.ClassCardSubtitle>
+              <S.ClassCardSubtitle>
+                {tCharacterCreation(classCardContent.subtitleKey)}
+              </S.ClassCardSubtitle>
             </S.ClassCardButton>
           );
         })}
@@ -80,39 +86,56 @@ export function ClassesStep({
               {resolveClassName(t(classDetail.index), classDetail.name, classDetail.index)}
             </S.SelectedInfoTitle>
             <S.SelectedInfoDescription>
-              {(classCardContentMap[classDetail.index] ?? defaultClassCardContent).subtitle}
+              {tCharacterCreation(
+                (
+                  classCardContentMap[classDetail.index] ??
+                  defaultClassCardContent
+                ).subtitleKey,
+              )}
             </S.SelectedInfoDescription>
           </S.SelectedInfoHeader>
 
           <S.SelectedQuickFactsGrid>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Dado de vida</S.SelectedQuickFactLabel>
-              <S.SelectedQuickFactValue>1d{classDetail.hit_die}</S.SelectedQuickFactValue>
+              <S.SelectedQuickFactLabel>
+                {tCharacterCreation("classStep.detail.quickFacts.hitDice")}
+              </S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactValue>
+                {tCharacterCreation("classStep.detail.hitDiceValue", {
+                  value: classDetail.hit_die,
+                })}
+              </S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Resistencias</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {tCharacterCreation("classStep.detail.quickFacts.savingThrows")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>
                 {classDetail.saving_throws.length}
               </S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Proficiencias</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {tCharacterCreation("classStep.detail.quickFacts.proficiencies")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>
                 {classDetail.proficiencies.length}
               </S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Subclasses</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {tCharacterCreation("classStep.detail.quickFacts.subclasses")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>{classDetail.subclasses.length}</S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
           </S.SelectedQuickFactsGrid>
 
           <S.SelectedInfoColumns>
             <S.SelectedInfoSection>
-              <S.SelectedInfoSectionTitle>Testes de resistencia</S.SelectedInfoSectionTitle>
+              <S.SelectedInfoSectionTitle>{t("saving_throws")}</S.SelectedInfoSectionTitle>
               <S.SelectedInfoTagList>
                 {classDetail.saving_throws.length === 0 ? (
-                  <S.SelectedInfoTag>Nao informado</S.SelectedInfoTag>
+                  <S.SelectedInfoTag>{notInformedText}</S.SelectedInfoTag>
                 ) : (
                   classDetail.saving_throws.map((savingThrow) => (
                     <S.SelectedInfoTag key={savingThrow.index}>
@@ -124,10 +147,10 @@ export function ClassesStep({
             </S.SelectedInfoSection>
 
             <S.SelectedInfoSection>
-              <S.SelectedInfoSectionTitle>Proficiencias</S.SelectedInfoSectionTitle>
+              <S.SelectedInfoSectionTitle>{t("proficiencies")}</S.SelectedInfoSectionTitle>
               <S.SelectedInfoTagList>
                 {classDetail.proficiencies.length === 0 ? (
-                  <S.SelectedInfoTag>Nao informado</S.SelectedInfoTag>
+                  <S.SelectedInfoTag>{notInformedText}</S.SelectedInfoTag>
                 ) : (
                   classDetail.proficiencies.map((proficiency) => (
                     <S.SelectedInfoTag key={proficiency.index}>
@@ -139,10 +162,10 @@ export function ClassesStep({
             </S.SelectedInfoSection>
 
             <S.SelectedInfoSection>
-              <S.SelectedInfoSectionTitle>Escolhas de proficiencia</S.SelectedInfoSectionTitle>
+              <S.SelectedInfoSectionTitle>{t("proficiencies_choices")}</S.SelectedInfoSectionTitle>
               <S.SelectedInfoList>
                 {classDetail.proficiency_choices.length === 0 ? (
-                  <li>Nao informado</li>
+                  <li>{notInformedText}</li>
                 ) : (
                   classDetail.proficiency_choices.map(
                     (proficiencyChoice, index) => (
@@ -156,10 +179,10 @@ export function ClassesStep({
             </S.SelectedInfoSection>
 
             <S.SelectedInfoSection>
-              <S.SelectedInfoSectionTitle>Subclasses</S.SelectedInfoSectionTitle>
+              <S.SelectedInfoSectionTitle>{t("subclasses")}</S.SelectedInfoSectionTitle>
               <S.SelectedInfoTagList>
                 {classDetail.subclasses.length === 0 ? (
-                  <S.SelectedInfoTag>Nao informado</S.SelectedInfoTag>
+                  <S.SelectedInfoTag>{notInformedText}</S.SelectedInfoTag>
                 ) : (
                   classDetail.subclasses.map((subclass) => (
                     <S.SelectedInfoTag key={subclass.index}>
@@ -173,7 +196,7 @@ export function ClassesStep({
         </S.SelectedInfoPanel>
       ) : (
         <S.StepStateCard>
-          Selecione uma classe para exibir os detalhes e definir seu estilo.
+          {tCharacterCreation("classStep.selectionHint")}
         </S.StepStateCard>
       )}
     </S.StepContentSection>

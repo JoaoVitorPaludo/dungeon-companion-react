@@ -1,4 +1,5 @@
 import "@fontsource/cinzel/600.css";
+import { useTranslation } from "react-i18next";
 import { ButtonComponent, SteppComponent } from "../../../components/ui";
 import { StepPlaceholder } from "../components/step-placeholder/step-placeholder";
 import * as S from "./character-creation.styles";
@@ -7,6 +8,7 @@ import { RacesStep } from "../components/races-step/races-step";
 import { ClassesStep } from "../components/classes-step/classes-step";
 
 export function CharacterCreation() {
+  const { t } = useTranslation("characterCreation");
   const {
     activeStep,
     headerTitle,
@@ -41,7 +43,8 @@ export function CharacterCreation() {
   } = useCharacterCreation();
 
   const currentStepLabel =
-    steps.find((step) => step.id === activeStep)?.label ?? "Proximo passo";
+    steps.find((step) => step.id === activeStep)?.label ??
+    t("placeholders.nextStepFallback");
   const currentStepNumber = String(activeStep).padStart(2, "0");
 
   return (
@@ -84,8 +87,11 @@ export function CharacterCreation() {
         />
       ) : (
         <StepPlaceholder
-          description="Este passo foi reservado como placeholder e sera implementado na proxima entrega."
-          title={`Step ${currentStepNumber} - ${currentStepLabel}`}
+          description={t("placeholders.description")}
+          title={t("placeholders.title", {
+            label: currentStepLabel,
+            step: currentStepNumber,
+          })}
         />
       )}
 

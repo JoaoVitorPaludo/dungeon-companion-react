@@ -1,4 +1,5 @@
 import characterPlaceholder from "../../../../assets/character-placeholder.svg";
+import { useTranslation } from "react-i18next";
 import * as S from "./styles";
 import type { CharacterCardProps } from "./character-card.types";
 
@@ -6,6 +7,8 @@ export function CharacterCard({
   character,
   onOpen,
 }: CharacterCardProps) {
+  const { t } = useTranslation("rpgCharacterSheets");
+
   return (
     <S.CharacterCardContainer
       animate="visible"
@@ -18,8 +21,12 @@ export function CharacterCard({
         <S.CharacterCardPortrait
           alt={
             character.imageUrl
-              ? `Retrato de ${character.name}`
-              : `Imagem base indicando que o retrato de ${character.name} nao foi anexado`
+              ? t("characterCard.portraitAltWithImage", {
+                  name: character.name,
+                })
+              : t("characterCard.portraitAltWithoutImage", {
+                  name: character.name,
+                })
           }
           loading="lazy"
           src={character.imageUrl ?? characterPlaceholder}
@@ -29,7 +36,10 @@ export function CharacterCard({
       <S.CharacterCardContent>
         <S.CharacterCardName>{character.name}</S.CharacterCardName>
         <S.CharacterCardClassLevel>
-          {character.characterClass} Nivel {character.level}
+          {t("characterCard.classLevel", {
+            className: character.characterClass,
+            level: character.level,
+          })}
         </S.CharacterCardClassLevel>
       </S.CharacterCardContent>
     </S.CharacterCardContainer>

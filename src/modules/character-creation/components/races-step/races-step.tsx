@@ -1,16 +1,18 @@
+import { useTranslation } from "react-i18next";
 import * as S from "./races-step.styles";
 import type { Step01RaceSelectionProps } from "./races-step.types";
 
 function formatSubraceDescription(
   description: string | string[] | undefined,
+  notInformedText: string,
 ): string {
   if (!description) {
-    return "Nao informado";
+    return notInformedText;
   }
 
   if (Array.isArray(description)) {
     if (description.length === 0) {
-      return "Nao informado";
+      return notInformedText;
     }
 
     return description.join(" ");
@@ -21,6 +23,18 @@ function formatSubraceDescription(
 
 function buildAbilityBonusLabel(abilityName: string, bonus: number): string {
   return `${abilityName} +${bonus}`;
+}
+
+function resolveRaceName(
+  translatedName: string,
+  fallbackName: string,
+  raceIndex: string,
+): string {
+  if (translatedName === raceIndex) {
+    return fallbackName;
+  }
+
+  return translatedName;
 }
 
 export function RacesStep({
@@ -38,26 +52,33 @@ export function RacesStep({
   handleSelectRace,
   handleSelectSubrace,
 }: Step01RaceSelectionProps) {
+  const { t } = useTranslation("characterCreation");
+  const { t: tRaces } = useTranslation("races");
+  const notInformedText = t("common.notInformed");
+
   return (
     <S.StepContentSection>
       {isLoadingStepOne && !hasStepOneError ? (
-        <S.StepStateCard>Carregando racas e subracas...</S.StepStateCard>
+        <S.StepStateCard>{t("raceStep.loading")}</S.StepStateCard>
       ) : null}
 
       {hasStepOneError ? (
-        <S.StepStateCard role="alert">
-          Nao foi possivel carregar os dados de raca. Tente novamente.
-        </S.StepStateCard>
+        <S.StepStateCard role="alert">{t("raceStep.error")}</S.StepStateCard>
       ) : null}
 
       {!isLoadingStepOne && races.length === 0 && !hasStepOneError ? (
-        <S.StepStateCard>Nenhuma raca disponivel no momento.</S.StepStateCard>
+        <S.StepStateCard>{t("raceStep.empty")}</S.StepStateCard>
       ) : null}
 
       <S.RaceCardsGrid>
         {races.map((race) => {
           const raceCardContent =
             raceCardContentMap[race.index] ?? defaultRaceCardContent;
+          const translatedRaceName = resolveRaceName(
+            tRaces(race.index),
+            race.name,
+            race.index,
+          );
 
           return (
             <S.RaceCardButton
@@ -68,14 +89,14 @@ export function RacesStep({
             >
               <S.RaceCardImageWrapper>
                 <S.RaceCardImage
-                  alt={`Ilustracao da raca ${race.name}`}
+                  alt={t("raceStep.cardAlt", { name: translatedRaceName })}
                   loading="lazy"
                   src={raceCardContent.imageSrc}
                 />
               </S.RaceCardImageWrapper>
-              <S.RaceCardTitle>{race.name}</S.RaceCardTitle>
+              <S.RaceCardTitle>{translatedRaceName}</S.RaceCardTitle>
               <S.RaceCardDescription>
-                {raceCardContent.description}
+                {t(raceCardContent.descriptionKey)}
               </S.RaceCardDescription>
             </S.RaceCardButton>
           );
@@ -84,9 +105,9 @@ export function RacesStep({
 
       {hasSubraces ? (
         <S.SubraceSection>
-          <S.SubraceTitle>Selecione uma subraca</S.SubraceTitle>
+          <S.SubraceTitle>{t("raceStep.selectSubraceTitle")}</S.SubraceTitle>
           <S.SubraceHelperText>
-            Esta escolha e obrigatoria para continuar para o proximo passo.
+            {t("raceStep.selectSubraceHelper")}
           </S.SubraceHelperText>
           <S.SubraceGrid>
             {subraceDetails.map((subrace) => (
@@ -108,37 +129,56 @@ export function RacesStep({
           <S.SelectedInfoHeader>
             <S.SelectedInfoTitle>
               {selectedSubrace
-                ? `${raceDetail.name} - ${selectedSubrace.name}`
-                : raceDetail.name}
+                ? t("raceStep.detail.titleWithSubrace", {
+                    raceName: resolveRaceName(
+                      tRaces(raceDetail.index),
+                      raceDetail.name,
+                      raceDetail.index,
+                    ),
+                    subraceName: selectedSubrace.name,
+                  })
+                : resolveRaceName(
+                    tRaces(raceDetail.index),
+                    raceDetail.name,
+                    raceDetail.index,
+                  )}
             </S.SelectedInfoTitle>
             <S.SelectedInfoDescription>
               {selectedSubrace
-                ? formatSubraceDescription(selectedSubrace.desc)
+                ? formatSubraceDescription(selectedSubrace.desc, notInformedText)
                 : raceDetail.language_desc}
             </S.SelectedInfoDescription>
           </S.SelectedInfoHeader>
 
           <S.SelectedQuickFactsGrid>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Velocidade</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {t("raceStep.detail.quickFacts.speed")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>
-                {raceDetail.speed} ft
+                {t("raceStep.detail.speedValue", { value: raceDetail.speed })}
               </S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Tamanho</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {t("raceStep.detail.quickFacts.size")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>
                 {raceDetail.size}
               </S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Alinhamento</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {t("raceStep.detail.quickFacts.alignment")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>
                 {raceDetail.alignment}
               </S.SelectedQuickFactValue>
             </S.SelectedQuickFactCard>
             <S.SelectedQuickFactCard>
-              <S.SelectedQuickFactLabel>Idade</S.SelectedQuickFactLabel>
+              <S.SelectedQuickFactLabel>
+                {t("raceStep.detail.quickFacts.age")}
+              </S.SelectedQuickFactLabel>
               <S.SelectedQuickFactValue>
                 {raceDetail.age}
               </S.SelectedQuickFactValue>
@@ -148,11 +188,11 @@ export function RacesStep({
           <S.SelectedInfoColumns>
             <S.SelectedInfoSection>
               <S.SelectedInfoSectionTitle>
-                Bonus de atributo
+                {t("raceStep.detail.sections.abilityBonuses")}
               </S.SelectedInfoSectionTitle>
               <S.SelectedInfoTagList>
                 {raceDetail.ability_bonuses.length === 0 ? (
-                  <S.SelectedInfoTag>Nao informado</S.SelectedInfoTag>
+                  <S.SelectedInfoTag>{notInformedText}</S.SelectedInfoTag>
                 ) : (
                   raceDetail.ability_bonuses.map((abilityBonus) => (
                     <S.SelectedInfoTag key={abilityBonus.ability_score.index}>
@@ -167,10 +207,12 @@ export function RacesStep({
             </S.SelectedInfoSection>
 
             <S.SelectedInfoSection>
-              <S.SelectedInfoSectionTitle>Idiomas</S.SelectedInfoSectionTitle>
+              <S.SelectedInfoSectionTitle>
+                {tRaces("languages")}
+              </S.SelectedInfoSectionTitle>
               <S.SelectedInfoTagList>
                 {raceDetail.languages.length === 0 ? (
-                  <S.SelectedInfoTag>Nao informado</S.SelectedInfoTag>
+                  <S.SelectedInfoTag>{notInformedText}</S.SelectedInfoTag>
                 ) : (
                   raceDetail.languages.map((language) => (
                     <S.SelectedInfoTag key={language.index}>
@@ -183,11 +225,11 @@ export function RacesStep({
 
             <S.SelectedInfoSection>
               <S.SelectedInfoSectionTitle>
-                Tracos raciais
+                {t("raceStep.detail.sections.traits")}
               </S.SelectedInfoSectionTitle>
               <S.SelectedInfoTagList>
                 {raceDetail.traits.length === 0 ? (
-                  <S.SelectedInfoTag>Nao informado</S.SelectedInfoTag>
+                  <S.SelectedInfoTag>{notInformedText}</S.SelectedInfoTag>
                 ) : (
                   raceDetail.traits.map((trait) => (
                     <S.SelectedInfoTag key={trait.index}>
@@ -200,7 +242,7 @@ export function RacesStep({
 
             <S.SelectedInfoSection>
               <S.SelectedInfoSectionTitle>
-                Descricao de tamanho
+                {t("raceStep.detail.sections.sizeDescription")}
               </S.SelectedInfoSectionTitle>
               <S.SelectedInfoParagraph>
                 {raceDetail.size_description}
@@ -210,7 +252,7 @@ export function RacesStep({
         </S.SelectedInfoPanel>
       ) : (
         <S.StepStateCard>
-          Selecione uma raca para exibir os detalhes e destravar sua origem.
+          {t("raceStep.selectionHint")}
         </S.StepStateCard>
       )}
     </S.StepContentSection>

@@ -28,3 +28,5 @@ export * from "./weapon-properties/weapon-properties";
 export * from "./global/global";
 export * from "./rule-sections/rule-sections";
 export * from "./rules/rules";
+export * from "./character-creation/character-creation";
+export * from "./rpg-character-sheets/rpg-character-sheets";

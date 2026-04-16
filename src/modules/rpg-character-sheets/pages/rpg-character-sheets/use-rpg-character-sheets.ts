@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import {
   CHARACTER_CREATION_PATH,
@@ -14,38 +15,39 @@ interface UseRpgCharacterSheetsReturn {
   handleOpenCharacter: (characterId: string) => void;
 }
 
-const MOCK_CHARACTERS: RpgCharacterSummary[] = [
-  {
-    id: "elira-dawnbringer",
-    name: "Elira Dawnbringer",
-    race: "High Elf",
-    characterClass: "Wizard",
-    level: 7,
-    campaign: "Shadows of Neverwinter",
-    updatedAt: "Atualizada ha 2 dias",
-  },
-  {
-    id: "brakka-ironhide",
-    name: "Brakka Ironhide",
-    race: "Half-Orc",
-    characterClass: "Fighter",
-    level: 5,
-    campaign: "Citadel of Embers",
-    updatedAt: "Atualizado hoje",
-  },
-  {
-    id: "mira-thistlefoot",
-    name: "Mira Thistlefoot",
-    race: "Lightfoot Halfling",
-    characterClass: "Rogue",
-    level: 4,
-    campaign: "The Gilded Veil",
-    updatedAt: "Atualizada ontem",
-  },
-];
-
 export function useRpgCharacterSheets(): UseRpgCharacterSheetsReturn {
   const navigate = useNavigate();
+  const { t } = useTranslation("rpgCharacterSheets");
+
+  const mockCharacters: RpgCharacterSummary[] = [
+    {
+      id: "elira-dawnbringer",
+      name: "Elira Dawnbringer",
+      race: "High Elf",
+      characterClass: "Wizard",
+      level: 7,
+      campaign: "Shadows of Neverwinter",
+      updatedAt: t("updatedAt.elira"),
+    },
+    {
+      id: "brakka-ironhide",
+      name: "Brakka Ironhide",
+      race: "Half-Orc",
+      characterClass: "Fighter",
+      level: 5,
+      campaign: "Citadel of Embers",
+      updatedAt: t("updatedAt.brakka"),
+    },
+    {
+      id: "mira-thistlefoot",
+      name: "Mira Thistlefoot",
+      race: "Lightfoot Halfling",
+      characterClass: "Rogue",
+      level: 4,
+      campaign: "The Gilded Veil",
+      updatedAt: t("updatedAt.mira"),
+    },
+  ];
 
   function handleCreateCharacter() {
     navigate(CHARACTER_CREATION_PATH);
@@ -56,11 +58,10 @@ export function useRpgCharacterSheets(): UseRpgCharacterSheetsReturn {
   }
 
   return {
-    greeting: "Saudacoes, Joao Vitor",
-    subtitle: "A taverna esta em silencio, mas os destinos aguardam sua escolha.",
-    emptyMessage:
-      "Nenhum personagem foi criado ainda. Quando voce iniciar uma ficha, ela aparecera aqui.",
-    characters: MOCK_CHARACTERS,
+    greeting: t("greeting"),
+    subtitle: t("subtitle"),
+    emptyMessage: t("emptyMessage"),
+    characters: mockCharacters,
     handleCreateCharacter,
     handleOpenCharacter,
   };

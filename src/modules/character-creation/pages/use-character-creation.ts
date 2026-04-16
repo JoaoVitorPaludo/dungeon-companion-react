@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import { RPG_CHARACTER_SHEETS_PATH } from "../../../app/routes/routes.constants";
 import {
@@ -62,6 +63,7 @@ interface UseCharacterCreationReturn {
 
 export function useCharacterCreation(): UseCharacterCreationReturn {
   const navigate = useNavigate();
+  const { t } = useTranslation("characterCreation");
   const [characterCreationState, setCharacterCreationState] =
     useState<CharacterCreationState>({
       activeStep: 1,
@@ -179,6 +181,15 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     return true;
   }, [canAdvanceStepOne, canAdvanceStepTwo, characterCreationState.activeStep]);
 
+  const translatedSteps = useMemo(
+    () =>
+      CHARACTER_CREATION_STEPS.map((step) => ({
+        ...step,
+        label: t(step.label),
+      })),
+    [t],
+  );
+
   const handleSelectRace = useCallback((raceIndex: string) => {
     setCharacterCreationState((currentState) => ({
       ...currentState,
@@ -243,9 +254,9 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
 
   return {
     activeStep: characterCreationState.activeStep,
-    headerTitle: "Jornada do Heroi",
-    headerSubtitle: "Toda lenda tem um comeco. Qual e a sua origem?",
-    steps: CHARACTER_CREATION_STEPS,
+    headerTitle: t("header.title"),
+    headerSubtitle: t("header.subtitle"),
+    steps: translatedSteps,
     races: racesQuery.data ?? [],
     raceDetail: raceDetailQuery.data ?? null,
     subraceDetails: subraceDetailsQuery.data ?? [],
@@ -266,9 +277,13 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     hasStepTwoError,
     rightButtonDisabled,
     leftButtonLabel:
-      characterCreationState.activeStep === 1 ? "Sair" : "Voltar",
+      characterCreationState.activeStep === 1
+        ? t("buttons.exit")
+        : t("buttons.back"),
     rightButtonLabel:
-      characterCreationState.activeStep <= 2 ? "Avancar" : "Em construcao",
+      characterCreationState.activeStep <= 2
+        ? t("buttons.next")
+        : t("buttons.inProgress"),
     handleSelectRace,
     handleSelectSubrace,
     handleSelectClass,

@@ -53,7 +53,7 @@ export interface CharacterCreationState {
 }
 
 export interface RaceCardContent {
-  description: string;
+  descriptionKey: string;
   imageSrc: string;
 }
 
@@ -86,6 +86,6 @@ export interface ClassDetail {
 }
 
 export interface ClassCardContent {
-  subtitle: string;
+  subtitleKey: string;
   imageSrc: string;
 }
