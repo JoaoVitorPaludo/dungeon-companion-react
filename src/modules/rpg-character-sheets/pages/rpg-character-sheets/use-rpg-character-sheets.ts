@@ -6,7 +6,8 @@ import {
 import type { RpgCharacterSummary } from "../../rpg-character-sheets.types";
 
 interface UseRpgCharacterSheetsReturn {
-  title: string;
+  greeting: string;
+  subtitle: string;
   emptyMessage: string;
   characters: RpgCharacterSummary[];
   handleCreateCharacter: () => void;
@@ -55,7 +56,8 @@ export function useRpgCharacterSheets(): UseRpgCharacterSheetsReturn {
   }
 
   return {
-    title: "Companheiros de campanha",
+    greeting: "Saudacoes, Joao Vitor",
+    subtitle: "Escolha seu aventureiro",
     emptyMessage:
       "Nenhum personagem foi criado ainda. Quando voce iniciar uma ficha, ela aparecera aqui.",
     characters: MOCK_CHARACTERS,

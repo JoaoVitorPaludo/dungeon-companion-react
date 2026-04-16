@@ -7,94 +7,69 @@ export { listVariants };
 export const RpgCharacterSheetsContainer = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-`;
-
-export const RpgCharacterSheetsSubtitle = styled.p`
-  margin: 0;
-  color: ${(props) => props.theme.foreground};
-  opacity: 0.8;
+  gap: 2rem;
+  padding-block: 1.5rem 2.25rem;
 `;
 
 export const CharacterListContainer = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  align-items: center;
+  gap: 1.4rem;
+  width: 100%;
 `;
 
-export const CharacterListToolbar = styled.div`
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.5rem 0;
-
-  @media (max-width: 720px) {
-    flex-direction: column;
-    align-items: stretch;
-  }
-`;
-
-export const CharacterListToolbarContent = styled.div`
+export const CharacterListHeader = styled.header`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.45rem;
+  margin-bottom: 0.45rem;
 `;
 
-export const CharacterListTitle = styled.h1`
+export const CharacterListGreeting = styled.p`
   margin: 0;
-  color: ${(props) => props.theme["primary-text-color"]};
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-`;
-
-export const CharacterListToolbarCaption = styled.p`
-  margin: 0;
-  max-width: 56ch;
   color: ${(props) => props.theme.foreground};
-  line-height: 1.5;
-  opacity: 0.82;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.2;
+  opacity: 0.92;
+  font-family: "Cinzel", Georgia, serif;
+  letter-spacing: 0.01em;
 `;
 
-export const CharacterListCreateButton = styled.button`
-  min-height: 3rem;
-  padding: 0.85rem 1.1rem;
-  border: 1px solid rgba(34, 197, 94, 0.28);
-  border-radius: 999px;
-  background:
-    linear-gradient(180deg, rgba(34, 197, 94, 0.18), rgba(34, 197, 94, 0.1)),
-    ${(props) => props.theme["muted-background"]};
-  color: ${(props) => props.theme["primary-text-color"]};
-  cursor: pointer;
-  font-weight: 700;
-  transition:
-    transform 200ms ease,
-    border-color 200ms ease,
-    box-shadow 200ms ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    border-color: ${(props) => props.theme["green-500"]};
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
-  }
+export const CharacterListSubtitle = styled.h1`
+  margin: 0;
+  color: ${(props) => props.theme.foreground};
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  text-align: center;
+  font-family: "Cinzel", Georgia, serif;
 `;
 
 export const CharacterListGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1rem;
+  width: 100%;
+  max-width: 1080px;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 210px));
+  gap: 1.15rem;
 
   @media (max-width: 720px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(156px, 1fr));
+    gap: 0.9rem;
   }
 `;
 
 export const CharacterListEmptyState = styled.div`
+  width: 100%;
+  max-width: 680px;
   padding: 2rem;
-  border: 1px dashed ${(props) => props.theme.border};
+  border: 1px dashed ${(props) => props.theme["border-strong"]};
   border-radius: 1.5rem;
-  background-color: ${(props) => props.theme["muted-background"]};
+  background-color: ${(props) => props.theme.surface};
   color: ${(props) => props.theme.foreground};
   text-align: center;
 `;

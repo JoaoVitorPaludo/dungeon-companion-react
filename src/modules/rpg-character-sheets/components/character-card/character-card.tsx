@@ -1,4 +1,3 @@
-import { ArrowRight, Shield, Sparkles, Sword } from "lucide-react";
 import characterPlaceholder from "../../../../assets/character-placeholder.svg";
 import * as S from "./styles";
 import type { CharacterCardProps } from "./character-card.types";
@@ -28,35 +27,10 @@ export function CharacterCard({
       </S.CharacterCardPortraitContainer>
 
       <S.CharacterCardContent>
-        <S.CharacterCardHeader>
-          <S.CharacterCardBadge>
-            <Sparkles size={14} />
-            {character.campaign}
-          </S.CharacterCardBadge>
-          <S.CharacterCardArrow>
-            <ArrowRight size={18} />
-          </S.CharacterCardArrow>
-        </S.CharacterCardHeader>
-
         <S.CharacterCardName>{character.name}</S.CharacterCardName>
-
-        <S.CharacterCardMetaList>
-          <S.CharacterCardMetaItem>
-            <Shield size={16} />
-            <span>Raca: {character.race}</span>
-          </S.CharacterCardMetaItem>
-          <S.CharacterCardMetaItem>
-            <Sword size={16} />
-            <span>Classe: {character.characterClass}</span>
-          </S.CharacterCardMetaItem>
-        </S.CharacterCardMetaList>
-
-        <S.CharacterCardFooter>
-          <S.CharacterCardLevel>Level {character.level}</S.CharacterCardLevel>
-          <S.CharacterCardUpdatedAt>
-            {character.updatedAt}
-          </S.CharacterCardUpdatedAt>
-        </S.CharacterCardFooter>
+        <S.CharacterCardClassLevel>
+          {character.characterClass} Nivel {character.level}
+        </S.CharacterCardClassLevel>
       </S.CharacterCardContent>
     </S.CharacterCardContainer>
   );
