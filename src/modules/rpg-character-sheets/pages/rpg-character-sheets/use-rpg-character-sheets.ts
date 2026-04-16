@@ -57,7 +57,7 @@ export function useRpgCharacterSheets(): UseRpgCharacterSheetsReturn {
 
   return {
     greeting: "Saudacoes, Joao Vitor",
-    subtitle: "Escolha seu aventureiro",
+    subtitle: "A taverna esta em silencio, mas os destinos aguardam sua escolha.",
     emptyMessage:
       "Nenhum personagem foi criado ainda. Quando voce iniciar uma ficha, ela aparecera aqui.",
     characters: MOCK_CHARACTERS,

@@ -27,6 +27,8 @@ Rules:
 - Styled components should be defined in a separate file (e.g. `my-component.styles.ts`) colocated with the component file.
 - Use the UI component from the project for all UI elements (e.g. buttons, inputs, etc.) instead of raw HTML elements.
 - Use Zod for all form validation and schema definitions. Define Zod schemas in a separate file (e.g. `my-component.schema.ts`) colocated with the component file.
+- Always apply the skill `minimalist-ui` in any UI/frontend request, unless I explicitly ask for a different style.
+  Skill path: C:\Users\joaop\.codex\skills\taste-skill-repo\skills\minimalist-skill\SKILL.md
 
 ### Naming Conventions
 

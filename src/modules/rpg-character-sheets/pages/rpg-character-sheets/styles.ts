@@ -14,7 +14,7 @@ export const RpgCharacterSheetsContainer = styled.main`
 export const CharacterListContainer = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.4rem;
   width: 100%;
 `;
@@ -23,6 +23,7 @@ export const CharacterListHeader = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: stretch;
   gap: 0.45rem;
   margin-bottom: 0.45rem;
 `;
@@ -30,20 +31,23 @@ export const CharacterListHeader = styled.header`
 export const CharacterListGreeting = styled.p`
   margin: 0;
   color: ${(props) => props.theme.foreground};
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(1.18rem, 2.2vw, 1.52rem);
   line-height: 1.2;
-  opacity: 0.92;
+  opacity: 0.95;
   font-family: "Cinzel", Georgia, serif;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
 `;
 
 export const CharacterListSubtitle = styled.h1`
   margin: 0;
-  color: ${(props) => props.theme.foreground};
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
-  line-height: 1.15;
+  color: ${(props) =>
+    props.theme.foreground === "#fff"
+      ? "#e2e8f0"
+      : props.theme["primary-text-color"]};
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.35;
   letter-spacing: 0.01em;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   font-family: "Cinzel", Georgia, serif;
 `;
@@ -52,8 +56,11 @@ export const CharacterListGrid = styled(motion.div)`
   display: grid;
   width: 100%;
   max-width: 1080px;
-  justify-content: center;
-  justify-items: center;
+  align-self: flex-start;
+  margin-top: 60px;
+  align-items: stretch;
+  justify-content: start;
+  justify-items: start;
   grid-template-columns: repeat(auto-fit, minmax(180px, 210px));
   gap: 1.15rem;
 

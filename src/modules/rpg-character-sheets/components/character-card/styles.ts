@@ -8,9 +8,11 @@ export const CharacterCardContainer = styled(motion.button)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.8rem;
   width: 100%;
   max-width: 210px;
+  height: 100%;
   min-width: 0;
   min-height: 0;
   padding: 0.9rem;
