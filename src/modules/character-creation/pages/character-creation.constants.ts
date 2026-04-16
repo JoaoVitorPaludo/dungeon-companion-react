@@ -1,13 +1,13 @@
-import dragonbornPlaceholder from "../../../../assets/races-placeholders/dragonborn.svg";
-import dwarfPlaceholder from "../../../../assets/races-placeholders/dwarf.svg";
-import elfPlaceholder from "../../../../assets/races-placeholders/elf.svg";
-import gnomePlaceholder from "../../../../assets/races-placeholders/gnome.svg";
-import halfElfPlaceholder from "../../../../assets/races-placeholders/half-elf.svg";
-import halfOrcPlaceholder from "../../../../assets/races-placeholders/half-orc.svg";
-import halflingPlaceholder from "../../../../assets/races-placeholders/halfling.svg";
-import humanPlaceholder from "../../../../assets/races-placeholders/human.svg";
-import tieflingPlaceholder from "../../../../assets/races-placeholders/tiefling.svg";
-import defaultPlaceholder from "../../../../assets/races-placeholders/default.svg";
+import dragonbornPlaceholder from "../../../assets/races-placeholders/dragonborn.svg";
+import dwarfPlaceholder from "../../../assets/races-placeholders/dwarf.svg";
+import elfPlaceholder from "../../../assets/races-placeholders/elf.svg";
+import gnomePlaceholder from "../../../assets/races-placeholders/gnome.svg";
+import halfElfPlaceholder from "../../../assets/races-placeholders/half-elf.svg";
+import halfOrcPlaceholder from "../../../assets/races-placeholders/half-orc.svg";
+import halflingPlaceholder from "../../../assets/races-placeholders/halfling.svg";
+import humanPlaceholder from "../../../assets/races-placeholders/human.svg";
+import tieflingPlaceholder from "../../../assets/races-placeholders/tiefling.svg";
+import defaultPlaceholder from "../../../assets/races-placeholders/default.svg";
 import type {
   CharacterCreationStep,
   RaceCardContent,
@@ -39,7 +39,8 @@ export const RACE_CARD_CONTENT_MAP: Record<string, RaceCardContent> = {
     imageSrc: elfPlaceholder,
   },
   gnome: {
-    description: "Inventores curiosos, criativos e sempre prontos para explorar.",
+    description:
+      "Inventores curiosos, criativos e sempre prontos para explorar.",
     imageSrc: gnomePlaceholder,
   },
   "half-elf": {
@@ -53,7 +54,8 @@ export const RACE_CARD_CONTENT_MAP: Record<string, RaceCardContent> = {
     imageSrc: halfOrcPlaceholder,
   },
   halfling: {
-    description: "Aventureiros discretos, sortudos e surpreendentemente valentes.",
+    description:
+      "Aventureiros discretos, sortudos e surpreendentemente valentes.",
     imageSrc: halflingPlaceholder,
   },
   human: {
