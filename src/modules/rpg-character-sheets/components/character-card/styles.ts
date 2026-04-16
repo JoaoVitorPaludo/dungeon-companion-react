@@ -12,7 +12,7 @@ export const CharacterCardContainer = styled(motion.button)`
   width: 100%;
   max-width: 210px;
   min-width: 0;
-  min-height: 280px;
+  min-height: 0;
   padding: 0.9rem;
   border: 1px solid ${(props) => props.theme["border-strong"]};
   border-radius: 1.3rem;
@@ -46,7 +46,7 @@ export const CharacterCardContainer = styled(motion.button)`
 export const CharacterCardPortraitContainer = styled.div`
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   border-radius: 1rem;
   background:
     radial-gradient(circle at top, rgba(34, 197, 94, 0.25), transparent 45%),
@@ -64,7 +64,7 @@ export const CharacterCardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.25rem;
   min-width: 0;
 `;
 
