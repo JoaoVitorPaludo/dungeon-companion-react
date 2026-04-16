@@ -2,15 +2,24 @@ import { useQuery } from "@tanstack/react-query";
 import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { RPG_CHARACTER_SHEETS_PATH } from "../../../app/routes/routes.constants";
+import {
+  getAllDnDClasses,
+  getClassesByIndex,
+} from "../../../controllers/classes/classes-controller";
 import { getRaceByIndex } from "../../../controllers/races/races-controller";
 import { getSubraceByIndex } from "../../../controllers/subraces/subraces-controller";
 import { getAllDnDRaces } from "../../../controllers/races/races-controller";
 import {
+  CLASS_CARD_CONTENT_MAP,
   CHARACTER_CREATION_STEPS,
+  DEFAULT_CLASS_CARD_CONTENT,
   DEFAULT_RACE_CARD_CONTENT,
   RACE_CARD_CONTENT_MAP,
 } from "./character-creation.constants";
 import type {
+  ClassCardContent,
+  ClassDetail,
+  ClassOption,
   CharacterCreationState,
   RaceCardContent,
   RaceDetail,
@@ -26,19 +35,27 @@ interface UseCharacterCreationReturn {
   races: RaceOption[];
   raceDetail: RaceDetail | null;
   subraceDetails: SubraceDetail[];
+  classes: ClassOption[];
+  classDetail: ClassDetail | null;
   selectedRaceIndex: string | null;
   selectedSubraceIndex: string | null;
   selectedSubrace: SubraceDetail | null;
+  selectedClassIndex: string | null;
   raceCardContentMap: Record<string, RaceCardContent>;
   defaultRaceCardContent: RaceCardContent;
+  classCardContentMap: Record<string, ClassCardContent>;
+  defaultClassCardContent: ClassCardContent;
   hasSubraces: boolean;
   isLoadingStepOne: boolean;
   hasStepOneError: boolean;
+  isLoadingStepTwo: boolean;
+  hasStepTwoError: boolean;
   rightButtonDisabled: boolean;
   leftButtonLabel: string;
   rightButtonLabel: string;
   handleSelectRace: (raceIndex: string) => void;
   handleSelectSubrace: (subraceIndex: string) => void;
+  handleSelectClass: (classIndex: string) => void;
   handleLeftAction: () => void;
   handleRightAction: () => void;
 }
@@ -50,6 +67,7 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
       activeStep: 1,
       selectedRaceIndex: null,
       selectedSubraceIndex: null,
+      selectedClassIndex: null,
     });
 
   const racesQuery = useQuery<RaceOption[]>({
@@ -96,6 +114,21 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
 
   const hasSubraces = subraceIndexes.length > 0;
 
+  const classesQuery = useQuery<ClassOption[]>({
+    queryKey: ["character-creation-classes"],
+    queryFn: getAllDnDClasses,
+  });
+
+  const classDetailQuery = useQuery<ClassDetail>({
+    enabled: Boolean(characterCreationState.selectedClassIndex),
+    queryKey: [
+      "character-creation-class",
+      characterCreationState.selectedClassIndex,
+    ],
+    queryFn: () =>
+      getClassesByIndex(characterCreationState.selectedClassIndex ?? ""),
+  });
+
   const isLoadingStepOne =
     racesQuery.isLoading ||
     raceDetailQuery.isLoading ||
@@ -105,6 +138,13 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     racesQuery.isError ||
     raceDetailQuery.isError ||
     (hasSubraces && subraceDetailsQuery.isError);
+
+  const isLoadingStepTwo =
+    classesQuery.isLoading ||
+    (Boolean(characterCreationState.selectedClassIndex) &&
+      classDetailQuery.isLoading);
+
+  const hasStepTwoError = classesQuery.isError || classDetailQuery.isError;
 
   const canAdvanceStepOne = useMemo(() => {
     if (!characterCreationState.selectedRaceIndex) {
@@ -122,13 +162,22 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     hasSubraces,
   ]);
 
+  const canAdvanceStepTwo = useMemo(
+    () => Boolean(characterCreationState.selectedClassIndex),
+    [characterCreationState.selectedClassIndex],
+  );
+
   const rightButtonDisabled = useMemo(() => {
     if (characterCreationState.activeStep === 1) {
       return !canAdvanceStepOne;
     }
 
+    if (characterCreationState.activeStep === 2) {
+      return !canAdvanceStepTwo;
+    }
+
     return true;
-  }, [canAdvanceStepOne, characterCreationState.activeStep]);
+  }, [canAdvanceStepOne, canAdvanceStepTwo, characterCreationState.activeStep]);
 
   const handleSelectRace = useCallback((raceIndex: string) => {
     setCharacterCreationState((currentState) => ({
@@ -142,6 +191,13 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     setCharacterCreationState((currentState) => ({
       ...currentState,
       selectedSubraceIndex: subraceIndex,
+    }));
+  }, []);
+
+  const handleSelectClass = useCallback((classIndex: string) => {
+    setCharacterCreationState((currentState) => ({
+      ...currentState,
+      selectedClassIndex: classIndex,
     }));
   }, []);
 
@@ -159,16 +215,31 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
 
   const handleRightAction = useCallback(() => {
     setCharacterCreationState((currentState) => {
-      if (currentState.activeStep !== 1 || !canAdvanceStepOne) {
-        return currentState;
+      if (currentState.activeStep === 1) {
+        if (!canAdvanceStepOne) {
+          return currentState;
+        }
+
+        return {
+          ...currentState,
+          activeStep: 2,
+        };
       }
 
-      return {
-        ...currentState,
-        activeStep: 2,
-      };
+      if (currentState.activeStep === 2) {
+        if (!canAdvanceStepTwo) {
+          return currentState;
+        }
+
+        return {
+          ...currentState,
+          activeStep: 3,
+        };
+      }
+
+      return currentState;
     });
-  }, [canAdvanceStepOne]);
+  }, [canAdvanceStepOne, canAdvanceStepTwo]);
 
   return {
     activeStep: characterCreationState.activeStep,
@@ -178,21 +249,29 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     races: racesQuery.data ?? [],
     raceDetail: raceDetailQuery.data ?? null,
     subraceDetails: subraceDetailsQuery.data ?? [],
+    classes: classesQuery.data ?? [],
+    classDetail: classDetailQuery.data ?? null,
     selectedRaceIndex: characterCreationState.selectedRaceIndex,
     selectedSubraceIndex: characterCreationState.selectedSubraceIndex,
     selectedSubrace,
+    selectedClassIndex: characterCreationState.selectedClassIndex,
     raceCardContentMap: RACE_CARD_CONTENT_MAP,
     defaultRaceCardContent: DEFAULT_RACE_CARD_CONTENT,
+    classCardContentMap: CLASS_CARD_CONTENT_MAP,
+    defaultClassCardContent: DEFAULT_CLASS_CARD_CONTENT,
     hasSubraces,
     isLoadingStepOne,
     hasStepOneError,
+    isLoadingStepTwo,
+    hasStepTwoError,
     rightButtonDisabled,
     leftButtonLabel:
       characterCreationState.activeStep === 1 ? "Sair" : "Voltar",
     rightButtonLabel:
-      characterCreationState.activeStep === 1 ? "Avancar" : "Em construcao",
+      characterCreationState.activeStep <= 2 ? "Avancar" : "Em construcao",
     handleSelectRace,
     handleSelectSubrace,
+    handleSelectClass,
     handleLeftAction,
     handleRightAction,
   };

@@ -4,6 +4,7 @@ import { StepPlaceholder } from "../components/step-placeholder/step-placeholder
 import * as S from "./character-creation.styles";
 import { useCharacterCreation } from "./use-character-creation";
 import { RacesStep } from "../components/races-step/races-step";
+import { ClassesStep } from "../components/classes-step/classes-step";
 
 export function CharacterCreation() {
   const {
@@ -14,22 +15,34 @@ export function CharacterCreation() {
     races,
     raceDetail,
     subraceDetails,
+    classes,
+    classDetail,
     selectedRaceIndex,
     selectedSubraceIndex,
     selectedSubrace,
+    selectedClassIndex,
     raceCardContentMap,
     defaultRaceCardContent,
+    classCardContentMap,
+    defaultClassCardContent,
     hasSubraces,
     isLoadingStepOne,
     hasStepOneError,
+    isLoadingStepTwo,
+    hasStepTwoError,
     rightButtonDisabled,
     leftButtonLabel,
     rightButtonLabel,
     handleSelectRace,
     handleSelectSubrace,
+    handleSelectClass,
     handleLeftAction,
     handleRightAction,
   } = useCharacterCreation();
+
+  const currentStepLabel =
+    steps.find((step) => step.id === activeStep)?.label ?? "Proximo passo";
+  const currentStepNumber = String(activeStep).padStart(2, "0");
 
   return (
     <S.CharacterCreationContainer>
@@ -58,10 +71,21 @@ export function CharacterCreation() {
           selectedSubraceIndex={selectedSubraceIndex}
           subraceDetails={subraceDetails}
         />
+      ) : activeStep === 2 ? (
+        <ClassesStep
+          classCardContentMap={classCardContentMap}
+          classDetail={classDetail}
+          classes={classes}
+          defaultClassCardContent={defaultClassCardContent}
+          handleSelectClass={handleSelectClass}
+          hasStepTwoError={hasStepTwoError}
+          isLoadingStepTwo={isLoadingStepTwo}
+          selectedClassIndex={selectedClassIndex}
+        />
       ) : (
         <StepPlaceholder
           description="Este passo foi reservado como placeholder e sera implementado na proxima entrega."
-          title="Step 02 - Classe e informacoes"
+          title={`Step ${currentStepNumber} - ${currentStepLabel}`}
         />
       )}
 

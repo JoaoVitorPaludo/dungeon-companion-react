@@ -49,9 +49,43 @@ export interface CharacterCreationState {
   activeStep: number;
   selectedRaceIndex: string | null;
   selectedSubraceIndex: string | null;
+  selectedClassIndex: string | null;
 }
 
 export interface RaceCardContent {
   description: string;
+  imageSrc: string;
+}
+
+export interface ClassOption {
+  index: string;
+  name: string;
+  url: string;
+}
+
+export interface ClassReference {
+  index: string;
+  name: string;
+  url: string;
+}
+
+export interface ClassProficiencyChoice {
+  desc: string;
+  choose: number;
+  type: string;
+}
+
+export interface ClassDetail {
+  index: string;
+  name: string;
+  hit_die: number;
+  proficiency_choices: ClassProficiencyChoice[];
+  proficiencies: ClassReference[];
+  saving_throws: ClassReference[];
+  subclasses: ClassReference[];
+}
+
+export interface ClassCardContent {
+  subtitle: string;
   imageSrc: string;
 }

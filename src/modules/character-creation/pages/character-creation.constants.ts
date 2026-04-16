@@ -9,6 +9,7 @@ import humanPlaceholder from "../../../assets/races-placeholders/human.svg";
 import tieflingPlaceholder from "../../../assets/races-placeholders/tiefling.svg";
 import defaultPlaceholder from "../../../assets/races-placeholders/default.svg";
 import type {
+  ClassCardContent,
   CharacterCreationStep,
   RaceCardContent,
 } from "./character-creation.types";
@@ -72,5 +73,72 @@ export const RACE_CARD_CONTENT_MAP: Record<string, RaceCardContent> = {
 
 export const DEFAULT_RACE_CARD_CONTENT: RaceCardContent = {
   description: "Uma origem singular pronta para abrir caminhos na sua jornada.",
+  imageSrc: defaultPlaceholder,
+};
+
+export const CLASS_CARD_CONTENT_MAP: Record<string, ClassCardContent> = {
+  barbarian: {
+    subtitle: "Um guerreiro feroz movido por furia primal e resistencia extrema.",
+    imageSrc: defaultPlaceholder,
+  },
+  bard: {
+    subtitle:
+      "Um artista arcano que inspira aliados e manipula a batalha com talento.",
+    imageSrc: defaultPlaceholder,
+  },
+  cleric: {
+    subtitle:
+      "Um canal de poder divino que protege, cura e pune os inimigos.",
+    imageSrc: defaultPlaceholder,
+  },
+  druid: {
+    subtitle:
+      "Um guardiao da natureza que invoca forcas primordiais e metamorfose.",
+    imageSrc: defaultPlaceholder,
+  },
+  fighter: {
+    subtitle:
+      "Um mestre de armas e taticas de combate. O especialista marcial.",
+    imageSrc: defaultPlaceholder,
+  },
+  monk: {
+    subtitle:
+      "Um combatente disciplinado que transforma corpo e mente em arma.",
+    imageSrc: defaultPlaceholder,
+  },
+  paladin: {
+    subtitle:
+      "Um campeao juramentado que combina fe, defesa e poder ofensivo.",
+    imageSrc: defaultPlaceholder,
+  },
+  ranger: {
+    subtitle:
+      "Um rastreador preciso, especialista em sobrevivencia e combate tatico.",
+    imageSrc: defaultPlaceholder,
+  },
+  rogue: {
+    subtitle:
+      "Um especialista em furtividade, precisão e oportunidades letais.",
+    imageSrc: defaultPlaceholder,
+  },
+  sorcerer: {
+    subtitle:
+      "Um conjurador de poder inato que molda magia por instinto.",
+    imageSrc: defaultPlaceholder,
+  },
+  warlock: {
+    subtitle:
+      "Um pactuante arcano que extrai poder de entidades misteriosas.",
+    imageSrc: defaultPlaceholder,
+  },
+  wizard: {
+    subtitle:
+      "Um estudioso arcano que domina magia por conhecimento e preparo.",
+    imageSrc: defaultPlaceholder,
+  },
+};
+
+export const DEFAULT_CLASS_CARD_CONTENT: ClassCardContent = {
+  subtitle: "Uma trilha de combate e magia pronta para definir seu estilo.",
   imageSrc: defaultPlaceholder,
 };
