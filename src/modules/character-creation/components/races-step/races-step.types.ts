@@ -3,7 +3,7 @@ import type {
   RaceDetail,
   RaceOption,
   SubraceDetail,
-} from "../../pages/character-creation/character-creation.types";
+} from "../../pages/character-creation.types";
 
 export interface Step01RaceSelectionProps {
   races: RaceOption[];

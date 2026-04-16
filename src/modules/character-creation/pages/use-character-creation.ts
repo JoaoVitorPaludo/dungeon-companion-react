@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
-import { RPG_CHARACTER_SHEETS_PATH } from "../../../../app/routes/routes.constants";
-import { getRaceByIndex } from "../../../../controllers/races/races-controller";
-import { getSubraceByIndex } from "../../../../controllers/subraces/subraces-controller";
-import { getAllDnDRaces } from "../../../../controllers/races/races-controller";
+import { RPG_CHARACTER_SHEETS_PATH } from "../../../app/routes/routes.constants";
+import { getRaceByIndex } from "../../../controllers/races/races-controller";
+import { getSubraceByIndex } from "../../../controllers/subraces/subraces-controller";
+import { getAllDnDRaces } from "../../../controllers/races/races-controller";
 import {
   CHARACTER_CREATION_STEPS,
   DEFAULT_RACE_CARD_CONTENT,
@@ -59,8 +59,12 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
 
   const raceDetailQuery = useQuery<RaceDetail>({
     enabled: Boolean(characterCreationState.selectedRaceIndex),
-    queryKey: ["character-creation-race", characterCreationState.selectedRaceIndex],
-    queryFn: () => getRaceByIndex(characterCreationState.selectedRaceIndex ?? ""),
+    queryKey: [
+      "character-creation-race",
+      characterCreationState.selectedRaceIndex,
+    ],
+    queryFn: () =>
+      getRaceByIndex(characterCreationState.selectedRaceIndex ?? ""),
   });
 
   const subraceIndexes = useMemo(
@@ -76,13 +80,16 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
       subraceIndexes.join(","),
     ],
     queryFn: async () =>
-      Promise.all(subraceIndexes.map((subraceIndex) => getSubraceByIndex(subraceIndex))),
+      Promise.all(
+        subraceIndexes.map((subraceIndex) => getSubraceByIndex(subraceIndex)),
+      ),
   });
 
   const selectedSubrace = useMemo(
     () =>
       subraceDetailsQuery.data?.find(
-        (subrace) => subrace.index === characterCreationState.selectedSubraceIndex,
+        (subrace) =>
+          subrace.index === characterCreationState.selectedSubraceIndex,
       ) ?? null,
     [characterCreationState.selectedSubraceIndex, subraceDetailsQuery.data],
   );
@@ -180,7 +187,8 @@ export function useCharacterCreation(): UseCharacterCreationReturn {
     isLoadingStepOne,
     hasStepOneError,
     rightButtonDisabled,
-    leftButtonLabel: characterCreationState.activeStep === 1 ? "Sair" : "Voltar",
+    leftButtonLabel:
+      characterCreationState.activeStep === 1 ? "Sair" : "Voltar",
     rightButtonLabel:
       characterCreationState.activeStep === 1 ? "Avancar" : "Em construcao",
     handleSelectRace,

@@ -1,1 +1,1 @@
-export { CharacterCreation } from "./pages/character-creation/character-creation";
+export { CharacterCreation } from "./pages/character-creation";

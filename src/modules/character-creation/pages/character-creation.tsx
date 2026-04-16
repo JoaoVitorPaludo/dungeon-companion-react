@@ -1,9 +1,9 @@
 import "@fontsource/cinzel/600.css";
-import { ButtonComponent, SteppComponent } from "../../../../components/ui";
-import { StepPlaceholder } from "../../components/step-placeholder/step-placeholder";
+import { ButtonComponent, SteppComponent } from "../../../components/ui";
+import { StepPlaceholder } from "../components/step-placeholder/step-placeholder";
 import * as S from "./character-creation.styles";
 import { useCharacterCreation } from "./use-character-creation";
-import { RacesStep } from "../../components/races-step/races-step";
+import { RacesStep } from "../components/races-step/races-step";
 
 export function CharacterCreation() {
   const {

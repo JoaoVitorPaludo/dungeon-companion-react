@@ -1,4 +1,4 @@
-import type { SteppItem } from "../../../../components/ui/stepp-component";
+import type { SteppItem } from "../../../components/ui/stepp-component";
 
 export interface CharacterCreationStep extends SteppItem {}
 
